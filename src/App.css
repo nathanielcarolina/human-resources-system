@@ -35,16 +35,12 @@ img.headshot {
   top: 56px;
 }
 
-th::after {
-  content: "\f0dc";
-  font-family: "FontAwesome";
-  font-weight: 900;
-}
-
 th.nosort::after {
   content: "\f0dc";
   font-family: "FontAwesome";
   font-weight: 900;
+  color: lightgray;
+  margin-left: 20px;
 }
 
 th.up::after {
