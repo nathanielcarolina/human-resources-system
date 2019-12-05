@@ -1,7 +1,38 @@
 import React, { Component } from 'react';
 
 class EmployeeInformation extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            employees: []
+        };
+    }
+
+    componentDidMount() {
+        this.getEmployees();
+    }
+
+    getEmployees = _ => {
+        fetch('http://localhost:4000/employees')
+        .then(response => response.json())
+        .then(response => this.setState({ employees: response.data }))
+        .catch(err => console.error(err));
+    }
+
+    renderEmployee = ({ Emp_ID, department, LName, FName, Position_Name }) =>
+        <tr key={Emp_ID}>
+            <td>{Emp_ID}</td>
+            <td>{department}</td>
+            <td>{LName}, {FName}</td>
+            <td>{Position_Name}</td>
+            <td><a href="#" className="text-success">more info</a></td>
+        </tr>        
+
     render() {
+
+        let { employees } = this.state;
+
         return (
             <>
                 <h2 className="display-6">Employee Information</h2>
@@ -39,77 +70,15 @@ class EmployeeInformation extends Component {
                 <table class="table table-hover sortable">
                     <thead>
                         <tr>
-                        <th scope="col" data-defaultsign='nospan'>Employee ID</th>
-                        <th scope="col" data-defaultsign='nospan'>Department</th>
-                        <th scope="col" data-defaultsign='nospan'>Name</th>
-                        <th scope="col" data-defaultsign='nospan'>Position</th>
-                        <th scope="col" data-defaultsort='disabled'>Details</th>
+                            <th scope="col" data-defaultsign='nospan'>Employee ID</th>
+                            <th scope="col" data-defaultsign='nospan'>Department</th>
+                            <th scope="col" data-defaultsign='nospan'>Name</th>
+                            <th scope="col" data-defaultsign='nospan'>Position</th>
+                            <th scope="col" data-defaultsort='disabled'>Details</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <td>1</td>
-                        <td>Finance</td>
-                        <td>Sharma, Shivam</td>
-                        <td>Senior Developer</td>
-                        <td><a href="#" className="text-success">more info</a></td>
-                        </tr>
-                        <tr>
-                        <td>2</td>
-                        <td>Laboratory</td>
-                        <td>Carolina, Nathaniel</td>
-                        <td>Laboratory Manager</td>
-                        <td><a href="#" className="text-success">more info</a></td>
-                        </tr>
-                        <tr>
-                        <td>3</td>
-                        <td>Sales</td>
-                        <td>Ghule, Snehal</td>
-                        <td>Sales Manager</td>
-                        <td><a href="#" className="text-success">more info</a></td>
-                        </tr>
-                        <tr>
-                        <td>4</td>
-                        <td>Finance</td>
-                        <td>Sharma, Shivam</td>
-                        <td>Senior Developer</td>
-                        <td><a href="#" className="text-success">more info</a></td>
-                        </tr>
-                        <tr>
-                        <td>5</td>
-                        <td>Laboratory</td>
-                        <td>Carolina, Nathaniel</td>
-                        <td>Laboratory Manager</td>
-                        <td><a href="#" className="text-success">more info</a></td>
-                        </tr>
-                        <tr>
-                        <td>6</td>
-                        <td>Sales</td>
-                        <td>Ghule, Snehal</td>
-                        <td>Sales Manager</td>
-                        <td><a href="#" className="text-success">more info</a></td>
-                        </tr>
-                        <tr>
-                        <td>7</td>
-                        <td>Finance</td>
-                        <td>Sharma, Shivam</td>
-                        <td>Senior Developer</td>
-                        <td><a href="#" className="text-success">more info</a></td>
-                        </tr>
-                        <tr>
-                        <td>8</td>
-                        <td>Laboratory</td>
-                        <td>Carolina, Nathaniel</td>
-                        <td>Laboratory Manager</td>
-                        <td><a href="#" className="text-success">more info</a></td>
-                        </tr>
-                        <tr>
-                        <td>9</td>
-                        <td>Sales</td>
-                        <td>Ghule, Snehal</td>
-                        <td>Sales Manager</td>
-                        <td><a href="#" className="text-success">more info</a></td>
-                        </tr>
+                        {employees.map(this.renderEmployee)}
                     </tbody>
                 </table>
 
