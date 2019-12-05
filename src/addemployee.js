@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Candidate extends Component {
+class AddEmployee extends Component {
     render(){
 
         return (
@@ -9,8 +9,8 @@ class Candidate extends Component {
                 <div class="col text-center">
                 <div class="py-5 ">
                     
-                    <h2>Candidate From Input</h2>
-                    <p class="lead">Below you have to enter the details of the candidate.</p>
+                    <h2>Employee From Input</h2>
+                    <p class="lead">Below you have to enter the details of the Employee.</p>
                 </div>     
                 </div>
             </div>
@@ -38,6 +38,13 @@ class Candidate extends Component {
                     <div class="mb-3">
                     <label for="email">Email <span class="text-muted">(Optional)</span></label>
                     <input type="email" class="form-control" id="email" placeholder="you@example.com"/>
+                    <div class="invalid-feedback">
+                        Please enter a valid email address.
+                    </div>
+                    </div>
+                    <div class="mb-3">
+                    <label for="email">Email @ work <span class="text-muted">(Optional)</span></label>
+                    <input type="email" class="form-control" id="emailwork" placeholder="you@example.com"/>
                     <div class="invalid-feedback">
                         Please enter a valid email address.
                     </div>
@@ -109,7 +116,7 @@ class Candidate extends Component {
                     
                     <hr class="mb-4"/>
 
-                    <h4 class="mb-3"> Applying for</h4>
+                    <h4 class="mb-3"> Working in and as </h4>
                     <div class="row">
                     <div class="col-md-4 mb-3">
                         <label for="status">Status</label>
@@ -224,4 +231,4 @@ class Candidate extends Component {
     
     } 
 }
-export default Candidate;
+export default AddEmployee;

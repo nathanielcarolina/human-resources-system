@@ -5,6 +5,7 @@ import EmployeeInformation from './employeeInformation.js';
 import Navbar from './navbar.js';
 import Sidebar from './sidebar.js'
 import Candidate from './candidate.js';
+import AddEmployee from './addemployee';
 
 
 function App() {
@@ -34,6 +35,9 @@ function App() {
             </div>
             <div class="tab-pane fade" id="list-candidate-form" role="tabpanel" aria-labelledby="list-candidate-form">
               <Candidate />
+            </div>
+            <div class="tab-pane fade" id="list-employee-form" role="tabpanel" aria-labelledby="list-employee-form">
+              <AddEmployee />
             </div>
             
 
