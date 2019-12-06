@@ -1,6 +1,25 @@
 import React, { Component } from 'react';
 
 class Candidate extends Component {
+    
+     addFields(){
+        // Number of inputs to create
+        let number = 10
+        // Container <div> where dynamic content will be placed
+        let addmore = document.getElementById("addmore");
+        // Clear previous contents of the container
+        for (let i=0;i<number;i++){
+            // Append a node with a random text
+            addmore.appendChild(document.createTextNode("same-Add-education " + (i+1)));
+            // Create an <input> element, set its type and name attributes
+            var input = document.createElement("input");
+            input.type = "text";
+            
+            addmore.appendChild(input);
+            // Append a line break 
+            addmore.appendChild(document.createElement("br"));
+        }
+    }  
     render(){
 
         return (
@@ -36,7 +55,7 @@ class Candidate extends Component {
                     </div>
 
                     <div class="mb-3">
-                    <label for="email">Email <span class="text-muted">(Optional)</span></label>
+                    <label for="email">Email <span class="text-muted"></span></label>
                     <input type="email" class="form-control" id="email" placeholder="you@example.com"/>
                     <div class="invalid-feedback">
                         Please enter a valid email address.
@@ -52,7 +71,7 @@ class Candidate extends Component {
                     </div>
 
                     <div class="mb-3">
-                    <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+                    <label for="address2">Address 2 <span class="text-muted"></span></label>
                     <input type="text" class="form-control" id="address2" placeholder="Apartment or suite"/>
                     </div>
 
@@ -65,14 +84,14 @@ class Candidate extends Component {
                         <option>Bavaria</option>
                         <option>Lower Saxony</option>
                         <option>Baden-Württemberg</option>
-                        <option> North Rhine-Westphalia</option>
+                        <option>North Rhine-Westphalia</option>
                         <option>Brandenburg</option>
                         <option>Mecklenburg-Vorpommern</option>
                         <option>Hesse</option>
                         <option>Saxony-Anhalt</option>
                         <option>Rhineland-Palatinate</option>
                         <option>Saxony</option>
-                        <option> Thuringia</option>
+                        <option>Thuringia</option>
                         <option>Schleswig-Holstein</option>
                         <option>Saarland</option>
                         <option>Berlin</option>
@@ -178,9 +197,15 @@ class Candidate extends Component {
                         <input type="date" class="form-control mr-3" id="End_date" />
                         <div class="invalid-feedback">
                         Valid Degree is required.
-                        </div>
                     </div>
                     </div>
+                    <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" name="same-Add-education"  id="same-Add-education" onclick="addFields()" />
+                    <label class="custom-control-label" for="same-Add-education" >Add More Details</label>
+                    <div id="addmore"/>
+                    </div>
+                    </div>
+                   
                     <hr class="mb-4"/>
                     <hr class="mb-4"/>
                     <h4 class="mb-4">Work History</h4>

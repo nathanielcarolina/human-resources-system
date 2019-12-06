@@ -36,14 +36,14 @@ class AddEmployee extends Component {
                     </div>
 
                     <div class="mb-3">
-                    <label for="email">Email <span class="text-muted">(Optional)</span></label>
+                    <label for="email">Email <span class="text-muted"></span></label>
                     <input type="email" class="form-control" id="email" placeholder="you@example.com"/>
                     <div class="invalid-feedback">
                         Please enter a valid email address.
                     </div>
                     </div>
                     <div class="mb-3">
-                    <label for="email">Email @ work <span class="text-muted">(Optional)</span></label>
+                    <label for="email">Email @ work <span class="text-muted"></span></label>
                     <input type="email" class="form-control" id="emailwork" placeholder="you@example.com"/>
                     <div class="invalid-feedback">
                         Please enter a valid email address.
