@@ -20,6 +20,36 @@ class Candidate extends Component {
             addmore.appendChild(document.createElement("br"));
         }
     }  
+
+    addEducation = (event) => {
+        event.preventDefault();
+        console.log("works");
+        let addEducationButton = document.querySelector("#addEducationButton");
+        addEducationButton.appendChild("<p>test</p>");
+    }
+
+    renderAddEducation = () =>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="SchoolName">School name</label>
+                <input type="text" class="form-control" id="SchoolName" placeholder="" value="" required=""/>
+                <label class="mr-2" for="start_date">Start Date:</label>
+                <input type="date" class="form-control mr-3" id="start_date" />
+                <div class="invalid-feedback">
+                Valid School name is required.
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="Degree">Degree name</label>
+                <input type="text" class="form-control" id="Degree" placeholder="" value="" required=""/>
+                <label class="mr-2" for="end_date">End Date:</label>
+                <input type="date" class="form-control mr-3" id="End_date" />
+                <div class="invalid-feedback">
+                Valid Degree is required.
+                </div>
+            </div>
+        </div>
+
     render(){
 
         return (
@@ -180,28 +210,33 @@ class Candidate extends Component {
                     <hr class="mb-4"/>
                     <h4 class="mb-4">Educational Background</h4>
                     <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="SchoolName">School name</label>
-                        <input type="text" class="form-control" id="SchoolName" placeholder="" value="" required=""/>
-                        <label class="mr-2" for="start_date">Start Date:</label>
-                        <input type="date" class="form-control mr-3" id="start_date" />
-                        <div class="invalid-feedback">
-                        Valid School name is required.
-                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="SchoolName">School name</label>
+                            <input type="text" class="form-control" id="SchoolName" placeholder="" value="" required=""/>
+                            <label class="mr-2" for="start_date">Start Date:</label>
+                            <input type="date" class="form-control mr-3" id="start_date" />
+                            <div class="invalid-feedback">
+                            Valid School name is required.
+                            </div>
 
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="Degree">Degree name</label>
-                        <input type="text" class="form-control" id="Degree" placeholder="" value="" required=""/>
-                        <label class="mr-2" for="end_date">End Date:</label>
-                        <input type="date" class="form-control mr-3" id="End_date" />
-                        <div class="invalid-feedback">
-                        Valid Degree is required.
-                    </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="Degree">Degree name</label>
+                            <input type="text" class="form-control" id="Degree" placeholder="" value="" required=""/>
+                            <label class="mr-2" for="end_date">End Date:</label>
+                            <input type="date" class="form-control mr-3" id="End_date" />
+                            <div class="invalid-feedback">
+                            Valid Degree is required.
+                        </div>
                     </div>
                     <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" name="same-Add-education"  id="same-Add-education" onclick="addFields()" />
-                    <label class="custom-control-label" for="same-Add-education" >Add More Details</label>
+                    <button 
+                        onClick={this.addEducation} 
+                        id="addEducationButton"
+                        class="btn btn-secondary" for="same-Add-education">
+                            Add More Details
+                    </button>
                     <div id="addmore"/>
                     </div>
                     </div>
