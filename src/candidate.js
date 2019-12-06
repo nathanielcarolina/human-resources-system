@@ -2,24 +2,7 @@ import React, { Component } from 'react';
 
 class Candidate extends Component {
     
-     addFields(){
-        // Number of inputs to create
-        let number = 10
-        // Container <div> where dynamic content will be placed
-        let addmore = document.getElementById("addmore");
-        // Clear previous contents of the container
-        for (let i=0;i<number;i++){
-            // Append a node with a random text
-            addmore.appendChild(document.createTextNode("same-Add-education " + (i+1)));
-            // Create an <input> element, set its type and name attributes
-            var input = document.createElement("input");
-            input.type = "text";
-            
-            addmore.appendChild(input);
-            // Append a line break 
-            addmore.appendChild(document.createElement("br"));
-        }
-    }  
+
 
     addEducation = (event) => {
         event.preventDefault();
@@ -237,7 +220,7 @@ class Candidate extends Component {
                         class="btn btn-secondary" for="same-Add-education">
                             Add More Details
                     </button>
-                    <div id="addmore"/>
+                    
                     </div>
                     </div>
                    
