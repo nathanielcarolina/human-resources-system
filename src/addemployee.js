@@ -5,69 +5,69 @@ class AddEmployee extends Component {
 
         return (
         <>
-            <div class="row justify-content-md-center">
-                <div class="col text-center">
-                <div class="py-5 ">
+            <div className="row justify-content-md-center">
+                <div className="col text-center">
+                <div className="py-5 ">
                     
                     <h2>Employee From Input</h2>
-                    <p class="lead">Below you have to enter the details of the Employee.</p>
+                    <p className="lead">Below you have to enter the details of the Employee.</p>
                 </div>     
                 </div>
             </div>
-            <div class="row justify-content-md-center">
-                <div class=" col-6 order-md-1  text-center">
-                    <h4 class="mb-3">Personal Details</h4>
-                    <form class="needs-validation form-group" novalidate="">
-                    <div class="row">
-                    <div class="col-md-6 mb-3">
+            <div className="row justify-content-md-center">
+                <div className=" col-6 order-md-1  text-center">
+                    <h4 className="mb-3">Personal Details</h4>
+                    <form className="needs-validation form-group" novalidate="">
+                    <div className="row">
+                    <div className="col-md-6 mb-3">
                         <label for="firstName">First name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required=""/>
-                        <div class="invalid-feedback">
+                        <input type="text" className="form-control" id="firstName" placeholder="" value="" required=""/>
+                        <div className="invalid-feedback">
                         Valid first name is required.
                         </div>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div className="col-md-6 mb-3">
                         <label for="lastName">Last name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required=""/>
-                        <div class="invalid-feedback">
+                        <input type="text" className="form-control" id="lastName" placeholder="" value="" required=""/>
+                        <div className="invalid-feedback">
                         Valid last name is required.
                         </div>
                     </div>
                     </div>
 
-                    <div class="mb-3">
-                    <label for="email">Email <span class="text-muted"></span></label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com"/>
-                    <div class="invalid-feedback">
+                    <div className="mb-3">
+                    <label for="email">Email <span className="text-muted"></span></label>
+                    <input type="email" className="form-control" id="email" placeholder="you@example.com"/>
+                    <div className="invalid-feedback">
                         Please enter a valid email address.
                     </div>
                     </div>
-                    <div class="mb-3">
-                    <label for="email">Email @ work <span class="text-muted"></span></label>
-                    <input type="email" class="form-control" id="emailwork" placeholder="you@example.com"/>
-                    <div class="invalid-feedback">
+                    <div className="mb-3">
+                    <label for="email">Email @ work <span className="text-muted"></span></label>
+                    <input type="email" className="form-control" id="emailwork" placeholder="you@example.com"/>
+                    <div className="invalid-feedback">
                         Please enter a valid email address.
                     </div>
                     </div>
 
-                    <div class="mb-3">
+                    <div className="mb-3">
                     <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required=""/>
-                    <div class="invalid-feedback">
+                    <input type="text" className="form-control" id="address" placeholder="1234 Main St" required=""/>
+                    <div className="invalid-feedback">
                         Please enter address.
                     </div>
                     </div>
 
-                    <div class="mb-3">
-                    <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-                    <input type="text" class="form-control" id="address2" placeholder="Apartment or suite"/>
+                    <div className="mb-3">
+                    <label for="address2">Address 2 <span className="text-muted">(Optional)</span></label>
+                    <input type="text" className="form-control" id="address2" placeholder="Apartment or suite"/>
                     </div>
 
-                    <div class="row">
+                    <div className="row">
 
-                    <div class="col-md-4 mb-3">
+                    <div className="col-md-4 mb-3">
                         <label for="state">State</label>
-                        <select class="custom-select d-block w-100" id="state" required="">
+                        <select className="custom-select d-block w-100" id="state" required="">
                         <option value="">Choose...</option>
                         <option>Bavaria</option>
                         <option>Lower Saxony</option>
@@ -79,48 +79,48 @@ class AddEmployee extends Component {
                         <option>Saxony-Anhalt</option>
                         <option>Rhineland-Palatinate</option>
                         <option>Saxony</option>
-                        <option> Thuringia</option>
+                        <option>Thuringia</option>
                         <option>Schleswig-Holstein</option>
                         <option>Saarland</option>
                         <option>Berlin</option>
                         <option>Hamburg</option>
                         <option>Bremen</option>
                         </select>
-                        <div class="invalid-feedback">
+                        <div className="invalid-feedback">
                         Please provide a valid state.
                         </div>
                     </div>
-                    <div class="col-md-3 mb-3">
+                    <div className="col-md-3 mb-3">
                         <label for="zip">Zip</label>
-                        <input type="text" class="form-control" id="zip" placeholder="" required=""/>
-                        <div class="invalid-feedback">
+                        <input type="text" className="form-control" id="zip" placeholder="" required=""/>
+                        <div className="invalid-feedback">
                         Zip code required.
                         </div>
                     </div>
-                    <div class="col-md-5 mb-3">
+                    <div className="col-md-5 mb-3">
                         <label for="country">Country</label>
-                        <select class="custom-select d-block w-100" id="country" required="">
+                        <select className="custom-select d-block w-100" id="country" required="">
                         <option value="">Choose...</option>
                         <option>Deutschland</option>
                         </select>
-                        <div class="invalid-feedback">
+                        <div className="invalid-feedback">
                         Please select a valid country.
                         </div>
                     </div>
                     </div>
-                    <hr class="mb-4"/>
-                    <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="same-address"/>
-                    <label class="custom-control-label" for="same-address">This is same as the correspondance address </label>
+                    <hr className="mb-4"/>
+                    <div className="custom-control custom-checkbox">
+                    <input type="checkbox" className="custom-control-input" id="same-address"/>
+                    <label className="custom-control-label" for="same-address">This is same as the correspondance address </label>
                     </div>
                     
-                    <hr class="mb-4"/>
+                    <hr className="mb-4"/>
 
-                    <h4 class="mb-3"> Working in and as </h4>
-                    <div class="row">
-                    <div class="col-md-4 mb-3">
+                    <h4 className="mb-3"> Working in and as </h4>
+                    <div className="row">
+                    <div className="col-md-4 mb-3">
                         <label for="status">Status</label>
-                        <select class="custom-select d-block w-100" id="status" required="">
+                        <select className="custom-select d-block w-100" id="status" required="">
                             <option value="">Choose...</option>
                             <option>Contract</option>
                             <option>Consultant</option>
@@ -129,13 +129,13 @@ class AddEmployee extends Component {
                             <option>Working Student</option>
                             
                         </select>
-                        <div class="invalid-feedback">
+                        <div className="invalid-feedback">
                             Please select a valid Status
                         </div>
                         </div>
-                        <div class="col-md-3 mb-3">
+                        <div className="col-md-3 mb-3">
                         <label for="status">Department</label>
-                        <select class="custom-select d-block w-100" id="Department" required="">
+                        <select className="custom-select d-block w-100" id="Department" required="">
                             <option value="">Choose...</option>
                             <option>Admin</option>
                             <option>QualityAssurance-Technology</option>
@@ -144,13 +144,13 @@ class AddEmployee extends Component {
                             <option>Development-Technology</option>
                             <option> IT - Support</option>
                         </select>
-                        <div class="invalid-feedback">
+                        <div className="invalid-feedback">
                             Please select a valid Status
                         </div>
                         </div>
-                        <div class="col-md-5 mb-3">
+                        <div className="col-md-5 mb-3">
                         <label for="status">Position</label>
-                        <select class="custom-select d-block w-100" id="Department" required="">
+                        <select className="custom-select d-block w-100" id="Department" required="">
                             <option value="">Choose...</option>
                             <option>Assistant Vice President </option>
                             <option>Junior Associate</option>
@@ -160,75 +160,65 @@ class AddEmployee extends Component {
                             <option> Working Student</option>
                             <option> Trainee</option>
                         </select>
-                        <div class="invalid-feedback">
+                        <div className="invalid-feedback">
                             Please select a valid Status
                         </div>
                         </div>
                     </div>
-                    <hr class="mb-4"/>
-                    <h4 class="mb-4">Educational Background</h4>
-                    <div class="row">
-                    <div class="col-md-6 mb-3">
+                    <hr className="mb-4"/>
+                    <h4 className="mb-4">Educational Background</h4>
+                    <div className="row">
+                    <div className="col-md-6 mb-3">
                         <label for="SchoolName">School name</label>
-                        <input type="text" class="form-control" id="SchoolName" placeholder="" value="" required=""/>
-                        <label class="mr-2" for="start_date">Start Date:</label>
-                        <input type="date" class="form-control mr-3" id="start_date" />
-                        <div class="invalid-feedback">
+                        <input type="text" className="form-control" id="SchoolName" placeholder="" value="" required=""/>
+                        <label className="mr-2" for="start_date">Start Date:</label>
+                        <input type="date" className="form-control mr-3" id="start_date" />
+                        <div className="invalid-feedback">
                         Valid School name is required.
                         </div>
 
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div className="col-md-6 mb-3">
                         <label for="Degree">Degree name</label>
-                        <input type="text" class="form-control" id="Degree" placeholder="" value="" required=""/>
-                        <label class="mr-2" for="end_date">End Date:</label>
-                        <input type="date" class="form-control mr-3" id="End_date" />
-                        <div class="invalid-feedback">
+                        <input type="text" className="form-control" id="Degree" placeholder="" value="" required=""/>
+                        <label className="mr-2" for="end_date">End Date:</label>
+                        <input type="date" className="form-control mr-3" id="End_date" />
+                        <div className="invalid-feedback">
                         Valid Degree is required.
                         </div>
                     </div>
                     </div>
-                    <hr class="mb-4"/>
-                    <hr class="mb-4"/>
-                    <h4 class="mb-4">Work History</h4>
-                    <div class="row">
-                    <div class="col-md-6 mb-3">
+                    <hr className="mb-4"/>
+                    <hr className="mb-4"/>
+                    <h4 className="mb-4">Work History</h4>
+                    <div className="row">
+                    <div className="col-md-6 mb-3">
                         <label for="CompanyName">Comapny</label>
-                        <input type="text" class="form-control" id="CompanyName" placeholder="" value="" required=""/>
-                        <label class="mr-2" for="start_date">Start Date:</label>
-                        <input type="date" class="form-control mr-3" id="start_date" />
-
-                        <div class="invalid-feedback">
+                        <input type="text" className="form-control" id="CompanyName" placeholder="" value="" required=""/>
+                        <label className="mr-2" for="start_date">Start Date:</label>
+                        <input type="date" className="form-control mr-3" id="start_date" />
+                        <div className="invalid-feedback">
                         Valid Company name is required.
                         </div>
-
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div className="col-md-6 mb-3">
                         <label for="PositionName">Position</label>
-                        <input type="text" class="form-control" id="Position" placeholder="" value="" required=""/>
-                        <label class="mr-2" for="end_date">End Date:</label>
-                        <input type="date" class="form-control mr-3" id="End_date" />
-                        <div class="invalid-feedback">
+                        <input type="text" className="form-control" id="Position" placeholder="" value="" required=""/>
+                        <label className="mr-2" for="end_date">End Date:</label>
+                        <input type="date" className="form-control mr-3" id="End_date" />
+                        <div className="invalid-feedback">
                         Valid position name is required.
                         </div>
+                    </div>       
                     </div>
-
-                        
-                      
-                            
-                        
-                    </div>
-                    <hr class="mb-4"/>
-                    <button class="btn btn-primary btn-lg btn-block btn-success" type="submit">Submit</button>
+                    <hr className="mb-4"/>
+                    <button className="btn btn-primary btn-lg btn-block btn-success" type="submit">Submit</button>
                 </form>
-                </div>  
-                
+                </div>          
             </div>
-
         </>
         );
-
-    
     } 
 }
+
 export default AddEmployee;
