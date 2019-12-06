@@ -39,11 +39,11 @@ class EmployeeInformation extends Component {
                 <h4 className="">Employee Information</h4>
                 <div className="my-4 p-3 bg-gray rounded">
                     <p className="small text-uppercase text-muted m-0">Filter by:</p>
-                    <form class="form-inline"> 
+                    <form className="form-inline"> 
 
                         <div className="form-group">
-                            <label class="mr-2" for="filterDepartment">Department:</label>
-                            <select class="mr-3 form-control" id="filterDepartment">
+                            <label className="mr-2" htmlFor="filterDepartment">Department:</label>
+                            <select className="mr-3 form-control" id="filterDepartment">
                                 <option selected>None selected</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -52,18 +52,18 @@ class EmployeeInformation extends Component {
                         </div>
 
                         <div className="form-group">
-                            <label class="mr-2" for="filterName">Name:</label>
-                            <input type="text" class="form-control mr-3" id="filterName" />
+                            <label className="mr-2" htmlFor="filterName">Name:</label>
+                            <input type="text" className="form-control mr-3" id="filterName" />
                         </div> 
 
                         <div className="form-group">
-                            <label class="mr-2" for="filterPosition">Position:</label>
-                            <input type="text" class="form-control mr-3" id="filterPosition" />
+                            <label className="mr-2" htmlFor="filterPosition">Position:</label>
+                            <input type="text" className="form-control mr-3" id="filterPosition" />
                         </div>
 
                         <div className="form-group">
-                            <label class="mr-2" for="filterStatus">Status:</label>
-                            <select class="mr-3 form-control" id="filterStatus">
+                            <label className="mr-2" htmlFor="filterStatus">Status:</label>
+                            <select className="mr-3 form-control" id="filterStatus">
                             <option selected>None selected</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
@@ -71,8 +71,8 @@ class EmployeeInformation extends Component {
                             </select>
                         </div>
 
-                        <button type="submit" class="btn btn-secondary mr-2">Apply</button>
-                        <button type="submit" class="btn btn-outline-secondary">Reset</button>
+                        <button type="submit" className="btn btn-secondary mr-2">Apply</button>
+                        <button type="submit" className="btn btn-outline-secondary">Reset</button>
                     </form>
 
                 </div>
@@ -90,15 +90,15 @@ class EmployeeInformation extends Component {
                             <option value="1">Page 1</option>
                             <option value="2">Page 2</option>
                         </select>
-                        <label className="mr-2 text-muted" for="currentPage">of 2</label>
-                        <div class="btn-group btn-group-sm border border-secondary rounded-lg" role="group" aria-label="Next and previous page">
-                            <button type="button" class="btn btn-light py-0"><i class="fas fa-chevron-left text-muted"></i></button>
-                            <button type="button" class="btn btn-light border-left py-0"><i class="fas fa-chevron-right text-muted"></i></button>
+                        <label className="mr-2 text-muted" htmlFor="currentPage">of 2</label>
+                        <div className="btn-group btn-group-sm border border-secondary rounded-lg" role="group" aria-label="Next and previous page">
+                            <button type="button" className="btn btn-light py-0"><i className="fas fa-chevron-left text-muted"></i></button>
+                            <button type="button" className="btn btn-light border-left py-0"><i className="fas fa-chevron-right text-muted"></i></button>
                         </div>
                     </div>
                 </div>
 
-                <table class="table table-hover">
+                <table className="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col" className='nosort'>ID</th>

@@ -25,22 +25,22 @@ class Sidebar extends Component {
         return (
             <>
                 <div className="sticky-top offset-top-56">
-                    <div class="media p-3 border-bottom">
-                        <img src={employeePicture} class="headshot mr-3" alt="Sample HR Employee Picture" />
-                        <div class="media-body align-self-center">
-                            <h5 class="m-0">Hello Patricia!</h5>
-                            <a href="#" className="small text-secondary">Sign out<i class="fas fa-sign-out-alt ml-1"></i></a>
+                    <div className="media p-3 border-bottom">
+                        <img src={employeePicture} className="headshot mr-3" alt="Sample HR Employee Picture" />
+                        <div className="media-body align-self-center">
+                            <h5 className="m-0">Hello Patricia!</h5>
+                            <a href="#" className="small text-secondary">Sign out<i className="fas fa-sign-out-alt ml-1"></i></a>
                         </div>
                     </div>
-                    <div id="sidebar" class="list-group list-group-flush" role="tablist">
+                    <div id="sidebar" className="list-group list-group-flush" role="tablist">
                         <a 
                             href="#list-employee-information" 
                             id="list-employee-information-list" 
                             data-toggle="list" 
                             role="tab" 
                             aria-controls="employee-information" 
-                            class="list-group-item list-group-item-action list-group-item-light active">
-                                <i class="fas fa-users mr-2"></i>
+                            className="list-group-item list-group-item-action list-group-item-light active">
+                                <i className="fas fa-users mr-2"></i>
                                 Employee Information
                         </a>
                         <a 
@@ -49,11 +49,11 @@ class Sidebar extends Component {
                             data-toggle="list" 
                             role="tab" 
                             aria-controls="departments" 
-                            class="list-group-item list-group-item-action list-group-item-light"
+                            className="list-group-item list-group-item-action list-group-item-light"
                             onClick={this.toggleVisibilityDepartments} >
-                                <i class="fas fa-sitemap mr-2"></i>
+                                <i className="fas fa-sitemap mr-2"></i>
                                 Departments
-                                <i class="fas fa-chevron-down float-right pt-1"></i>
+                                <i className="fas fa-chevron-down float-right pt-1"></i>
                         </a>
                         <a 
                             href="#list-department-admin" 
@@ -61,8 +61,8 @@ class Sidebar extends Component {
                             data-toggle="list" 
                             role="tab" 
                             aria-controls="department-admin" 
-                            class="list-group-item list-group-item-action list-group-item-light departments-list d-none">
-                                <i class="fas fa-copy mr-2 ml-4"></i>
+                            className="list-group-item list-group-item-action list-group-item-light departments-list d-none">
+                                <i className="fas fa-copy mr-2 ml-4"></i>
                                 Administrative
                         </a>
                         <a 
@@ -71,8 +71,8 @@ class Sidebar extends Component {
                             data-toggle="list" 
                             role="tab" 
                             aria-controls="department-development" 
-                            class="list-group-item list-group-item-action list-group-item-light departments-list d-none">
-                                <i class="fas fa-code mr-2 ml-4"></i>
+                            className="list-group-item list-group-item-action list-group-item-light departments-list d-none">
+                                <i className="fas fa-code mr-2 ml-4"></i>
                                 Development
                         </a>
                         <a 
@@ -81,8 +81,8 @@ class Sidebar extends Component {
                             data-toggle="list" 
                             role="tab" 
                             aria-controls="department-finance" 
-                            class="list-group-item list-group-item-action list-group-item-light departments-list d-none">
-                                <i class="fas fa-file-invoice-dollar mr-2 ml-4"></i>
+                            className="list-group-item list-group-item-action list-group-item-light departments-list d-none">
+                                <i className="fas fa-file-invoice-dollar mr-2 ml-4"></i>
                                 Finance
                         </a>
                         <a 
@@ -91,8 +91,8 @@ class Sidebar extends Component {
                             data-toggle="list" 
                             role="tab" 
                             aria-controls="department-hr" 
-                            class="list-group-item list-group-item-action list-group-item-light departments-list d-none">
-                                <i class="fas fa-portrait mr-2 ml-4"></i>
+                            className="list-group-item list-group-item-action list-group-item-light departments-list d-none">
+                                <i className="fas fa-portrait mr-2 ml-4"></i>
                                 Human Resources
                         </a>
                         <a 
@@ -101,8 +101,8 @@ class Sidebar extends Component {
                             data-toggle="list" 
                             role="tab" 
                             aria-controls="department-itSupport" 
-                            class="list-group-item list-group-item-action list-group-item-light departments-list d-none">
-                                <i class="fas fa-question-circle mr-2 ml-4"></i>
+                            className="list-group-item list-group-item-action list-group-item-light departments-list d-none">
+                                <i className="fas fa-question-circle mr-2 ml-4"></i>
                                 IT Support
                         </a>
                         <a 
@@ -111,8 +111,8 @@ class Sidebar extends Component {
                             data-toggle="list" 
                             role="tab" 
                             aria-controls="department-qualityAssurance" 
-                            class="list-group-item list-group-item-action list-group-item-light departments-list d-none">
-                                <i class="fas fa-list-alt mr-2 ml-4"></i>
+                            className="list-group-item list-group-item-action list-group-item-light departments-list d-none">
+                                <i className="fas fa-list-alt mr-2 ml-4"></i>
                                 Quality Assurance
                         </a>
                         <a 
@@ -121,8 +121,8 @@ class Sidebar extends Component {
                             data-toggle="list" 
                             role="tab" 
                             aria-controls="payroll" 
-                            class="list-group-item list-group-item-action list-group-item-light">
-                                <i class="fas fa-money-bill mr-2"></i>
+                            className="list-group-item list-group-item-action list-group-item-light">
+                                <i className="fas fa-money-bill mr-2"></i>
                                 Payroll
                         </a>
                         <a 
@@ -131,8 +131,8 @@ class Sidebar extends Component {
                             data-toggle="list" 
                             role="tab" 
                             aria-controls="leave-management" 
-                            class="list-group-item list-group-item-action list-group-item-light">
-                                <i class="fas fa-bed mr-2"></i>
+                            className="list-group-item list-group-item-action list-group-item-light">
+                                <i className="fas fa-bed mr-2"></i>
                                 Leave Management
                         </a>
                         <a 
@@ -141,8 +141,8 @@ class Sidebar extends Component {
                             data-toggle="list" 
                             role="tab" 
                             aria-controls="performance" 
-                            class="list-group-item list-group-item-action list-group-item-light">
-                                <i class="fas fa-chart-line mr-2"></i>
+                            className="list-group-item list-group-item-action list-group-item-light">
+                                <i className="fas fa-chart-line mr-2"></i>
                                 Performance
                         </a>
                         <a 
@@ -151,11 +151,11 @@ class Sidebar extends Component {
                             data-toggle="list" 
                             role="tab" 
                             aria-controls="recruitment" 
-                            class="list-group-item list-group-item-action list-group-item-light"
+                            className="list-group-item list-group-item-action list-group-item-light"
                             onClick={this.toggleVisibilityRecruitment} >
-                                <i class="fas fa-user-graduate mr-2"></i>
+                                <i className="fas fa-user-graduate mr-2"></i>
                                 Recruitment
-                                <i class="fas fa-chevron-down float-right pt-1"></i>
+                                <i className="fas fa-chevron-down float-right pt-1"></i>
                         </a>
                         <a 
                             href="#list-candidate-form" 
@@ -163,8 +163,8 @@ class Sidebar extends Component {
                             data-toggle="list" 
                             role="tab" 
                             aria-controls="candidate-form" 
-                            class="list-group-item list-group-item-action list-group-item-light recruitment-list d-none">
-                                <i class="fas fa-plus-circle mr-2 ml-4"></i>
+                            className="list-group-item list-group-item-action list-group-item-light recruitment-list d-none">
+                                <i className="fas fa-plus-circle mr-2 ml-4"></i>
                                 Add New Candidate
                         </a>
                         <a 
@@ -173,8 +173,8 @@ class Sidebar extends Component {
                             data-toggle="list" 
                             role="tab" 
                             aria-controls="candidate-edit" 
-                            class="list-group-item list-group-item-action list-group-item-light recruitment-list d-none">
-                                <i class="fas fa-user-edit mr-2 ml-4"></i>
+                            className="list-group-item list-group-item-action list-group-item-light recruitment-list d-none">
+                                <i className="fas fa-user-edit mr-2 ml-4"></i>
                                 Edit Candidate
                         </a>
                         <a 
@@ -183,8 +183,8 @@ class Sidebar extends Component {
                             data-toggle="list" 
                             role="tab" 
                             aria-controls="employee-form" 
-                            class="list-group-item list-group-item-action list-group-item-light recruitment-list d-none">
-                                <i class="fas fa-suitcase mr-2 ml-4"></i>
+                            className="list-group-item list-group-item-action list-group-item-light recruitment-list d-none">
+                                <i className="fas fa-suitcase mr-2 ml-4"></i>
                                 Add New Employee
                         </a>
                         <a 
@@ -193,8 +193,8 @@ class Sidebar extends Component {
                             data-toggle="list" 
                             role="tab" 
                             aria-controls="equipment" 
-                            class="list-group-item list-group-item-action list-group-item-light">
-                                <i class="fas fa-desktop mr-2"></i>
+                            className="list-group-item list-group-item-action list-group-item-light">
+                                <i className="fas fa-desktop mr-2"></i>
                                 Equipment
                         </a>
                         <a 
@@ -203,15 +203,14 @@ class Sidebar extends Component {
                             data-toggle="list" 
                             role="tab" 
                             aria-controls="separation" 
-                            class="list-group-item list-group-item-action list-group-item-light">
-                                <i class="fas fa-briefcase mr-2"></i>
+                            className="list-group-item list-group-item-action list-group-item-light">
+                                <i className="fas fa-briefcase mr-2"></i>
                                 Separation
                         </a>
                     </div>               
                 </div>
             </>
         );
-
     }
 }
 
