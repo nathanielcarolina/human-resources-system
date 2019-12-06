@@ -12,18 +12,18 @@ class Candidate extends Component {
     renderEducation = ({fieldNumber}) => 
         <div key={fieldNumber} className="row mb-4">
             <div className="col-md-6 mb-3">
-                <label for="SchoolName">School name</label>
+                <label htmlFor="SchoolName">School name</label>
                 <input type="text" className="form-control" id="SchoolName" placeholder="" value="" required=""/>
-                <label className="mr-2" for="start_date">Start Date:</label>
+                <label className="mr-2" htmlFor="start_date">Start Date:</label>
                 <input type="date" className="form-control mr-3" id="start_date" />
                 <div className="invalid-feedback">
                     Valid School name is required.
                 </div>
             </div>
             <div className="col-md-6 mb-3">
-                <label for="Degree">Degree name</label>
+                <label htmlFor="Degree">Degree name</label>
                 <input type="text" className="form-control" id="Degree" placeholder="" value="" required=""/>
-                <label className="mr-2" for="end_date">End Date:</label>
+                <label className="mr-2" htmlFor="end_date">End Date:</label>
                 <input type="date" className="form-control mr-3" id="End_date" />
                 <div className="invalid-feedback">
                 Valid Degree is required.
@@ -57,14 +57,14 @@ class Candidate extends Component {
                         <form className="needs-validation form-group" novalidate="">
                             <div className="row">
                             <div className="col-md-6 mb-3">
-                                <label for="firstName">First name</label>
+                                <label htmlFor="firstName">First name</label>
                                 <input type="text" className="form-control" id="firstName" placeholder="" value="" required=""/>
                                 <div className="invalid-feedback">
                                 Valid first name is required.
                                 </div>
                             </div>
                             <div className="col-md-6 mb-3">
-                                <label for="lastName">Last name</label>
+                                <label htmlFor="lastName">Last name</label>
                                 <input type="text" className="form-control" id="lastName" placeholder="" value="" required=""/>
                                 <div className="invalid-feedback">
                                 Valid last name is required.
@@ -73,7 +73,7 @@ class Candidate extends Component {
                             </div>
 
                             <div className="mb-3">
-                            <label for="email">Email <span className="text-muted"></span></label>
+                            <label htmlFor="email">Email <span className="text-muted"></span></label>
                             <input type="email" className="form-control" id="email" placeholder="you@example.com"/>
                             <div className="invalid-feedback">
                                 Please enter a valid email address.
@@ -81,7 +81,7 @@ class Candidate extends Component {
                             </div>
 
                             <div className="mb-3">
-                            <label for="address">Address</label>
+                            <label htmlFor="address">Address</label>
                             <input type="text" className="form-control" id="address" placeholder="1234 Main St" required=""/>
                             <div className="invalid-feedback">
                                 Please enter address.
@@ -89,14 +89,14 @@ class Candidate extends Component {
                             </div>
 
                             <div className="mb-3">
-                            <label for="address2">Address 2 <span className="text-muted"></span></label>
+                            <label htmlFor="address2">Address 2 <span className="text-muted"></span></label>
                             <input type="text" className="form-control" id="address2" placeholder="Apartment or suite"/>
                             </div>
 
                             <div className="row">
 
                             <div className="col-md-4 mb-3">
-                                <label for="state">State</label>
+                                <label htmlFor="state">State</label>
                                 <select className="custom-select d-block w-100" id="state" required="">
                                 <option value="">Choose...</option>
                                 <option>Bavaria</option>
@@ -121,14 +121,14 @@ class Candidate extends Component {
                                 </div>
                             </div>
                             <div className="col-md-3 mb-3">
-                                <label for="zip">Zip</label>
+                                <label htmlFor="zip">Zip</label>
                                 <input type="text" className="form-control" id="zip" placeholder="" required=""/>
                                 <div className="invalid-feedback">
                                 Zip code required.
                                 </div>
                             </div>
                             <div className="col-md-5 mb-3">
-                                <label for="country">Country</label>
+                                <label htmlFor="country">Country</label>
                                 <select className="custom-select d-block w-100" id="country" required="">
                                 <option value="">Choose...</option>
                                 <option>Deutschland</option>
@@ -141,7 +141,7 @@ class Candidate extends Component {
                             <hr className="mb-4"/>
                             <div className="custom-control custom-checkbox">
                             <input type="checkbox" className="custom-control-input" id="same-address"/>
-                            <label className="custom-control-label" for="same-address">This is same as the correspondance address </label>
+                            <label className="custom-control-label" htmlFor="same-address">This is same as the correspondance address </label>
                             </div>
                             
                             <hr className="mb-4"/>
@@ -149,7 +149,7 @@ class Candidate extends Component {
                             <h4 className="mb-3">Applying for</h4>
                             <div className="row">
                             <div className="col-md-4 mb-3">
-                                <label for="status">Status</label>
+                                <label htmlFor="status">Status</label>
                                 <select className="custom-select d-block w-100" id="status" required="">
                                     <option value="">Choose...</option>
                                     <option>Contract</option>
@@ -164,7 +164,7 @@ class Candidate extends Component {
                                 </div>
                                 </div>
                                 <div className="col-md-3 mb-3">
-                                <label for="status">Department</label>
+                                <label htmlFor="status">Department</label>
                                 <select className="custom-select d-block w-100" id="Department" required="">
                                     <option value="">Choose...</option>
                                     <option>Admin</option>
@@ -179,7 +179,7 @@ class Candidate extends Component {
                                 </div>
                                 </div>
                                 <div className="col-md-5 mb-3">
-                                <label for="status">Position</label>
+                                <label htmlFor="status">Position</label>
                                 <select className="custom-select d-block w-100" id="Department" required="">
                                     <option value="">Choose...</option>
                                     <option>Assistant Vice President </option>
@@ -212,9 +212,9 @@ class Candidate extends Component {
                             <h4 className="mb-4">Work History</h4>
                             <div className="row">
                                 <div className="col-md-6 mb-3">
-                                    <label for="CompanyName">Comapny</label>
+                                    <label htmlFor="CompanyName">Comapny</label>
                                     <input type="text" className="form-control" id="CompanyName" placeholder="" value="" required=""/>
-                                    <label className="mr-2" for="start_date">Start Date:</label>
+                                    <label className="mr-2" htmlFor="start_date">Start Date:</label>
                                     <input type="date" className="form-control mr-3" id="start_date" />
 
                                     <div className="invalid-feedback">
@@ -223,9 +223,9 @@ class Candidate extends Component {
                                 </div>
 
                                 <div className="col-md-6 mb-3">
-                                    <label for="PositionName">Position</label>
+                                    <label htmlFor="PositionName">Position</label>
                                     <input type="text" className="form-control" id="Position" placeholder="" value="" required=""/>
-                                    <label className="mr-2" for="end_date">End Date:</label>
+                                    <label className="mr-2" htmlFor="end_date">End Date:</label>
                                     <input type="date" className="form-control mr-3" id="End_date" />
                                     <div className="invalid-feedback">
                                     Valid position name is required.

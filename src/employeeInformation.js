@@ -42,7 +42,7 @@ class EmployeeInformation extends Component {
                     <form className="form-inline"> 
 
                         <div className="form-group">
-                            <label className="mr-2" for="filterDepartment">Department:</label>
+                            <label className="mr-2" htmlFor="filterDepartment">Department:</label>
                             <select className="mr-3 form-control" id="filterDepartment">
                                 <option selected>None selected</option>
                                 <option value="1">One</option>
@@ -52,17 +52,17 @@ class EmployeeInformation extends Component {
                         </div>
 
                         <div className="form-group">
-                            <label className="mr-2" for="filterName">Name:</label>
+                            <label className="mr-2" htmlFor="filterName">Name:</label>
                             <input type="text" className="form-control mr-3" id="filterName" />
                         </div> 
 
                         <div className="form-group">
-                            <label className="mr-2" for="filterPosition">Position:</label>
+                            <label className="mr-2" htmlFor="filterPosition">Position:</label>
                             <input type="text" className="form-control mr-3" id="filterPosition" />
                         </div>
 
                         <div className="form-group">
-                            <label className="mr-2" for="filterStatus">Status:</label>
+                            <label className="mr-2" htmlFor="filterStatus">Status:</label>
                             <select className="mr-3 form-control" id="filterStatus">
                             <option selected>None selected</option>
                             <option value="1">One</option>
@@ -90,7 +90,7 @@ class EmployeeInformation extends Component {
                             <option value="1">Page 1</option>
                             <option value="2">Page 2</option>
                         </select>
-                        <label className="mr-2 text-muted" for="currentPage">of 2</label>
+                        <label className="mr-2 text-muted" htmlFor="currentPage">of 2</label>
                         <div className="btn-group btn-group-sm border border-secondary rounded-lg" role="group" aria-label="Next and previous page">
                             <button type="button" className="btn btn-light py-0"><i className="fas fa-chevron-left text-muted"></i></button>
                             <button type="button" className="btn btn-light border-left py-0"><i className="fas fa-chevron-right text-muted"></i></button>
