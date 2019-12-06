@@ -35,6 +35,7 @@ class Candidate extends Component {
         let educationNumFields = [...this.state.educationNumFields];
         educationNumFields.push(educationNumFields[-1]++);
         this.setState({educationNumFields});
+    
     }
 
     render(){
@@ -233,6 +234,15 @@ class Candidate extends Component {
                                 </div>                            
                             </div>
                             <hr className="mb-4"/>
+                           
+                            <div class="form-group mt-4">
+                                <label class="mr-3">Upload your CV:</label>
+                                <input type="file" name="file"/>
+                            </div>
+                                                
+                                                
+                          
+ 
                             <button className="btn btn-primary btn-lg btn-block btn-success" type="submit">Submit</button>
                         </form>
                     </div>  
