@@ -17,7 +17,7 @@ class AddEmployee extends Component {
             <div className="row justify-content-md-center">
                 <div className=" col-6 order-md-1  text-center">
                     <h4 className="mb-3">Personal Details</h4>
-                    <form className="needs-validation form-group" novalidate="">
+                    <form className="needs-validation form-group" noValidate>
                     <div className="row">
                     <div className="col-md-6 mb-3">
                         <label htmlFor="firstName">First name</label>
