@@ -9,37 +9,38 @@ class Candidate extends Component {
         };
     }
 
-    renderEducation = ({fieldNumber}) => 
-        <div key={fieldNumber} className="row mb-4">
-            <div className="col-md-6 mb-3">
-                <label htmlFor="SchoolName">School name</label>
-                <input type="text" className="form-control" id="SchoolName" placeholder="" value="" required=""/>
-                <label className="mr-2" htmlFor="start_date">Start Date:</label>
-                <input type="date" className="form-control mr-3" id="start_date" />
-                <div className="invalid-feedback">
-                    Valid School name is required.
-                </div>
-            </div>
-            <div className="col-md-6 mb-3">
-                <label htmlFor="Degree">Degree name</label>
-                <input type="text" className="form-control" id="Degree" placeholder="" value="" required=""/>
-                <label className="mr-2" htmlFor="end_date">End Date:</label>
-                <input type="date" className="form-control mr-3" id="End_date" />
-                <div className="invalid-feedback">
-                Valid Degree is required.
-                </div>
-            </div>
-        </div>
-
     addEducation = () => {
         let educationNumFields = [...this.state.educationNumFields];
-        educationNumFields.push(educationNumFields[-1]++);
+        educationNumFields.push(educationNumFields.slice(-1)[0] + 1);
         this.setState({educationNumFields});
     }
 
     render(){
 
         let { educationNumFields } = this.state;
+
+        const renderEducation = educationNumFields.map((fieldNumber) => 
+            <div key={fieldNumber.toString()} className="row mb-4">
+                <div className="col-md-6 mb-3">
+                    <label htmlFor="SchoolName">School name</label>
+                    <input type="text" className="form-control" id="SchoolName" placeholder="" value="" required=""/>
+                    <label className="mr-2" htmlFor="start_date">Start Date:</label>
+                    <input type="date" className="form-control mr-3" id="start_date" />
+                    <div className="invalid-feedback">
+                        Valid School name is required.
+                    </div>
+                </div>
+                <div className="col-md-6 mb-3">
+                    <label htmlFor="Degree">Degree name</label>
+                    <input type="text" className="form-control" id="Degree" placeholder="" value="" required=""/>
+                    <label className="mr-2" htmlFor="end_date">End Date:</label>
+                    <input type="date" className="form-control mr-3" id="End_date" />
+                    <div className="invalid-feedback">
+                    Valid Degree is required.
+                    </div>
+                </div>
+            </div>    
+        );
 
         return (
             <>
@@ -201,7 +202,7 @@ class Candidate extends Component {
 
                             {/* display a number of education fields based on the 
                             number of entries in the educationNumFields state */}
-                            {educationNumFields.map(this.renderEducation)} 
+                            {renderEducation} 
 
                             <div onClick={this.addEducation} className="btn btn-secondary">
                                 Add More Details
