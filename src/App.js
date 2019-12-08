@@ -6,6 +6,11 @@ import Sidebar from './sidebar.js'
 import Candidate from './candidate.js';
 import AddEmployee from './addemployee.js';
 import DepartmentAdministrative from './departmentAdministrative.js'
+import DepartmentDevelopment from './departmentDevelopment.js';
+import DepartmentFinance from './departmentFinance.js';
+import DepartmentHumanResources from './departmentHumanResources.js';
+import DepartmentITSupport from './departmentITSupport.js';
+import DepartmentQualityAssurance from './departmentQualityAssurance.js';
 
 
 function App() {
@@ -30,6 +35,41 @@ function App() {
               role="tabpanel" 
               aria-labelledby="list-department-admin">
               <DepartmentAdministrative />
+            </div>
+            <div 
+              className="tab-pane fade" 
+              id="list-department-development" 
+              role="tabpanel" 
+              aria-labelledby="list-department-development">
+              <DepartmentDevelopment />
+            </div>
+            <div 
+              className="tab-pane fade" 
+              id="list-department-finance" 
+              role="tabpanel" 
+              aria-labelledby="list-department-finance">
+              <DepartmentFinance />
+            </div>
+            <div 
+              className="tab-pane fade" 
+              id="list-department-hr" 
+              role="tabpanel" 
+              aria-labelledby="list-department-hr">
+              <DepartmentHumanResources />
+            </div>
+            <div 
+              className="tab-pane fade" 
+              id="list-department-itSupport" 
+              role="tabpanel" 
+              aria-labelledby="list-department-itSupport">
+              <DepartmentITSupport />
+            </div>
+            <div 
+              className="tab-pane fade" 
+              id="list-department-qualityAssurance" 
+              role="tabpanel" 
+              aria-labelledby="list-department-qualityAssurance">
+              <DepartmentQualityAssurance />
             </div>
             <div className="tab-pane fade" id="list-payroll" role="tabpanel" aria-labelledby="list-payroll">
               <p>test</p>
