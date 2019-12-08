@@ -4,7 +4,8 @@ import EmployeeInformation from './employeeInformation.js';
 import Navbar from './navbar.js';
 import Sidebar from './sidebar.js'
 import Candidate from './candidate.js';
-import AddEmployee from './addemployee';
+import AddEmployee from './addemployee.js';
+import DepartmentAdministrative from './departmentAdministrative.js'
 
 
 function App() {
@@ -16,12 +17,19 @@ function App() {
         
         <div className="col-10 p-4">
           <div className="tab-content" id="nav-tabContent">
-            <div className="tab-pane fade show active" id="list-employee-information" role="tabpanel" aria-labelledby="list-employee-information">
+            <div 
+              className="tab-pane fade show active" 
+              id="list-employee-information" 
+              role="tabpanel" 
+              aria-labelledby="list-employee-information">
               <EmployeeInformation />
             </div>
-
-            <div className="tab-pane fade" id="list-department" role="tabpanel" aria-labelledby="list-department">
-              <p>test</p>
+            <div 
+              className="tab-pane fade" 
+              id="list-department-admin" 
+              role="tabpanel" 
+              aria-labelledby="list-department-admin">
+              <DepartmentAdministrative />
             </div>
             <div className="tab-pane fade" id="list-payroll" role="tabpanel" aria-labelledby="list-payroll">
               <p>test</p>
