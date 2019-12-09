@@ -12,6 +12,7 @@ import DepartmentHumanResources from './departmentHumanResources.js';
 import DepartmentITSupport from './departmentITSupport.js';
 import DepartmentQualityAssurance from './departmentQualityAssurance.js';
 import Payroll from './payroll.js';
+import LeaveManagement from './leaveManagement.js';
 
 
 function App() {
@@ -79,8 +80,12 @@ function App() {
               aria-labelledby="list-payroll">
               <Payroll />
             </div>
-            <div className="tab-pane fade" id="list-leave-management" role="tabpanel" aria-labelledby="list-leave-management">
-              <p>test</p>
+            <div 
+              className="tab-pane fade" 
+              id="list-leave-management" 
+              role="tabpanel" 
+              aria-labelledby="list-leave-management">
+              <LeaveManagement />
             </div>
             <div className="tab-pane fade" id="list-performance" role="tabpanel" aria-labelledby="list-performance">
               <p>test</p>
