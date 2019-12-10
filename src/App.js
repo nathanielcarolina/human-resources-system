@@ -14,6 +14,7 @@ import DepartmentQualityAssurance from './departmentQualityAssurance.js';
 import Payroll from './payroll.js';
 import LeaveManagement from './leaveManagement.js';
 import Performance from './performance.js';
+import Equipment from './equipment.js';
 
 
 function App() {
@@ -97,10 +98,13 @@ function App() {
             <div className="tab-pane fade" id="list-employee-form" role="tabpanel" aria-labelledby="list-employee-form">
               <AddEmployee />
             </div>
-            <div className="tab-pane fade" id="list-equipment" role="tabpanel" aria-labelledby="list-equipment">
-              <p>test</p>
+            <div 
+              className="tab-pane fade" 
+              id="list-equipment" 
+              role="tabpanel" 
+              aria-labelledby="list-equipment">
+              <Equipment />
             </div>
-
             <div className="tab-pane fade" id="list-separation" role="tabpanel" aria-labelledby="list-separation">
               <p>test</p>
             </div>
