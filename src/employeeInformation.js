@@ -44,7 +44,7 @@ class EmployeeInformation extends Component {
                         <div className="form-group">
                             <label className="mr-2" htmlFor="filterDepartment">Department:</label>
                             <select className="mr-3 form-control" id="filterDepartment">
-                                <option selected>None selected</option>
+                                <option defaultValue="None selected">None selected</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
@@ -64,7 +64,7 @@ class EmployeeInformation extends Component {
                         <div className="form-group">
                             <label className="mr-2" htmlFor="filterStatus">Status:</label>
                             <select className="mr-3 form-control" id="filterStatus">
-                            <option selected>None selected</option>
+                            <option defaultValue="None selected">None selected</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
@@ -91,7 +91,7 @@ class EmployeeInformation extends Component {
                             <option value="2">Page 2</option>
                         </select>
                         <label className="mr-2 text-muted" htmlFor="currentPage">of 2</label>
-                        <div className="btn-group btn-group-sm border border-secondary rounded-lg" role="group" aria-label="Next and previous page">
+                        <div className="btn-group btn-group-sm rounded-lg" role="group" aria-label="Next and previous page">
                             <button type="button" className="btn btn-light py-0"><i className="fas fa-chevron-left text-muted"></i></button>
                             <button type="button" className="btn btn-light border-left py-0"><i className="fas fa-chevron-right text-muted"></i></button>
                         </div>
