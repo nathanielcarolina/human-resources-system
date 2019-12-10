@@ -15,6 +15,7 @@ import Payroll from './payroll.js';
 import LeaveManagement from './leaveManagement.js';
 import Performance from './performance.js';
 import Equipment from './equipment.js';
+import Router from './router.js';
 
 
 function App() {
@@ -26,6 +27,11 @@ function App() {
         
         <div className="col-10 p-4">
           <div className="tab-content" id="nav-tabContent">
+            <Router />
+
+
+
+
             <div 
               className="tab-pane fade show active" 
               id="list-employee-information" 
