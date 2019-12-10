@@ -5,6 +5,7 @@ import Navbar from './navbar.js';
 import Sidebar from './sidebar.js'
 import Candidate from './candidate.js';
 import AddEmployee from './addemployee';
+import Separation from './addemployee';
 
 
 function App() {
@@ -44,7 +45,8 @@ function App() {
             </div>
 
             <div className="tab-pane fade" id="list-separation" role="tabpanel" aria-labelledby="list-separation">
-              <p>test</p>
+              <Separation />
+              
             </div>
           </div>
         </div>

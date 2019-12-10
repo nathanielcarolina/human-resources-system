@@ -38,6 +38,7 @@ class Candidate extends Component {
     
     }
 
+
     render(){
 
         let { educationNumFields } = this.state;
