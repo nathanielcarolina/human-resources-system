@@ -12,7 +12,7 @@ import DepartmentHumanResources from './departmentHumanResources.js';
 import DepartmentITSupport from './departmentITSupport.js';
 import DepartmentQualityAssurance from './departmentQualityAssurance.js';
 import Candidate from './candidate.js';
-
+import Seperation from './seperation.js'
 
 class Router extends Component {
   render() {
@@ -32,6 +32,7 @@ class Router extends Component {
         <Route path="/leave-management" component={LeaveManagement} />
         <Route path="/performance" component={Performance} />
         <Route path="/equipment" component={Equipment} />
+        <Route path="/seperation" component={Seperation} />
       </Switch>
     );
   }

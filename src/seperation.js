@@ -1,6 +1,19 @@
 import React, { Component } from 'react';
 
 class Seperation extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            seperation: []
+        };
+    }
+
+   
+
+    getSeperation = _ => {
+        fetch('http://localhost:4000/seperation')
+ 
+    }
     render(){
 
         return (
@@ -18,3 +31,4 @@ class Seperation extends Component {
         )
     }
 }
+export default Seperation;

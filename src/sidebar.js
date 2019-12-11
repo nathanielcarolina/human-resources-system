@@ -161,12 +161,12 @@ class Sidebar extends Component {
                             Equipment
                         </NavLink>
 
-                        <NavLink to="/separation"
+                        <Link to="/separation"
                             className="list-group-item list-group-item-action list-group-item-light"
                             role="tab" >
                             <i className="fas fa-briefcase mr-2"></i>
                             Separation
-                        </NavLink>
+                        </Link>
 
                     </div>               
                 </div>
