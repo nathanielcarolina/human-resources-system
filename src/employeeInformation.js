@@ -20,13 +20,13 @@ class EmployeeInformation extends Component {
         .catch(err => console.error(err));
     }
 
-    renderEmployee = ({ Emp_ID, department, LName, FName, Position_Name, Emp_Status }) =>
-        <tr key={Emp_ID}>
-            <td>{Emp_ID}</td>
-            <td>{department}</td>
-            <td>{LName}, {FName}</td>
-            <td>{Position_Name}</td>
-            <td>{Emp_Status}</td>
+    renderEmployee = ({ EmployeeID, Department, LastName, FirstName, Position, Status }) =>
+        <tr key={EmployeeID.toString()}>
+            <td>{EmployeeID}</td>
+            <td>{Department}</td>
+            <td>{LastName}, {FirstName}</td>
+            <td>{Position}</td>
+            <td>{Status}</td>
             <td><a href="#" className="text-success">more info</a></td>
         </tr>
 
