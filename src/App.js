@@ -3,7 +3,7 @@ import './App.css';
 import EmployeeInformation from './employeeInformation.js';
 import Navbar from './navbar.js';
 import Sidebar from './sidebar.js'
-import Candidate from './candidate.js';
+import CandidateNew from './candidateNew.js';
 import AddEmployee from './addemployee.js';
 import DepartmentAdministrative from './departmentAdministrative.js'
 import DepartmentDevelopment from './departmentDevelopment.js';

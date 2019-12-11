@@ -11,7 +11,7 @@ import DepartmentFinance from './departmentFinance.js';
 import DepartmentHumanResources from './departmentHumanResources.js';
 import DepartmentITSupport from './departmentITSupport.js';
 import DepartmentQualityAssurance from './departmentQualityAssurance.js';
-import Candidate from './candidate.js';
+import CandidateNew from './candidateNew.js';
 import EmployeeEdit from './employeeEdit.js';
 
 
@@ -26,8 +26,8 @@ class Router extends Component {
         <Route path="/departments/human-resources" component={DepartmentHumanResources} />
         <Route path="/departments/it-support" component={DepartmentITSupport} />
         <Route path="/departments/quality-assurance" component={DepartmentQualityAssurance} />
-        <Route path="/candidate/new" component={Candidate} />
-        <Route path="/candidate/edit" component={Candidate} />
+        <Route path="/candidate/new" component={CandidateNew} />
+        <Route path="/candidate/edit" component={CandidateNew} />
         <Route path="/employee-information" component={EmployeeInformation} />
         <Route path="/payroll" component={Payroll} />
         <Route path="/leave-management" component={LeaveManagement} />
