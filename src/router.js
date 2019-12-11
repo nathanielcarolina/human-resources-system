@@ -12,7 +12,12 @@ import DepartmentHumanResources from './departmentHumanResources.js';
 import DepartmentITSupport from './departmentITSupport.js';
 import DepartmentQualityAssurance from './departmentQualityAssurance.js';
 import Candidate from './candidate.js';
+<<<<<<< HEAD
 import Seperation from './seperation.js'
+=======
+import EmployeeEdit from './employeeEdit.js';
+
+>>>>>>> c81a928c2898bd6970f45c1d6ccca32815e8947d
 
 class Router extends Component {
   render() {
@@ -32,7 +37,11 @@ class Router extends Component {
         <Route path="/leave-management" component={LeaveManagement} />
         <Route path="/performance" component={Performance} />
         <Route path="/equipment" component={Equipment} />
+<<<<<<< HEAD
         <Route path="/seperation" component={Seperation} />
+=======
+        <Route path="/employee/edit" component={EmployeeEdit} />
+>>>>>>> c81a928c2898bd6970f45c1d6ccca32815e8947d
       </Switch>
     );
   }
