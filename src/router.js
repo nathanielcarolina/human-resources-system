@@ -11,7 +11,14 @@ import DepartmentFinance from './departmentFinance.js';
 import DepartmentHumanResources from './departmentHumanResources.js';
 import DepartmentITSupport from './departmentITSupport.js';
 import DepartmentQualityAssurance from './departmentQualityAssurance.js';
+<<<<<<< HEAD
 import CandidateNew from './candidateNew.js';
+||||||| merged common ancestors
+import Candidate from './candidate.js';
+=======
+import Candidate from './candidate.js';
+import Separation from './separation.js'
+>>>>>>> 57fe955a30577cb303d22e4257551b61bc46836e
 import EmployeeEdit from './employeeEdit.js';
 
 
@@ -33,6 +40,7 @@ class Router extends Component {
         <Route path="/leave-management" component={LeaveManagement} />
         <Route path="/performance" component={Performance} />
         <Route path="/equipment" component={Equipment} />
+        <Route path="/separation" component={Separation} />
         <Route path="/employee/edit" component={EmployeeEdit} />
       </Switch>
     );
