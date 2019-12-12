@@ -142,6 +142,7 @@ class Sidebar extends Component {
                                 <i className="fas fa-user-edit mr-2 ml-4"></i>
                                 Edit Candidate
                         </Link>
+                        
 
                         {/* <a 
                             href="#list-employee-form" 
