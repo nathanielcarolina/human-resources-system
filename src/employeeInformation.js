@@ -20,19 +20,18 @@ class EmployeeInformation extends Component {
         .catch(err => console.error(err));
     }
 
-    renderEmployee = ({ EmployeeID, Department, LastName, FirstName, Position, Status }) =>
-        <tr key={EmployeeID.toString()}>
-            <td>{EmployeeID}</td>
-            <td>{Department}</td>
-            <td>{LastName}, {FirstName}</td>
-            <td>{Position}</td>
-            <td>{Status}</td>
-            <td><a href="#" className="text-success">more info</a></td>
-        </tr>
-
     render() {
 
-        let { employees } = this.state;
+        let renderEmployee = this.state.employees.map(({ EmployeeID, Department, LastName, FirstName, Position, Status }) =>
+            <tr key={EmployeeID.toString()}>
+                <td>{EmployeeID}</td>
+                <td>{Department}</td>
+                <td>{LastName}, {FirstName}</td>
+                <td>{Position}</td>
+                <td>{Status}</td>
+                <td><a href={"/employee/edit/" + EmployeeID} className="text-success">more info</a></td>
+            </tr>
+        ); 
 
         return (
             <>
@@ -110,7 +109,7 @@ class EmployeeInformation extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {employees.map(this.renderEmployee)}
+                        {renderEmployee}
                     </tbody>
                 </table>
             </>
