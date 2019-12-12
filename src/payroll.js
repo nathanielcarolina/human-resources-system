@@ -22,12 +22,12 @@ class Payroll extends Component {
     }
 
     render() {
-        let renderEmployee = this.state.employees.map(({Emp_ID, LName, FName, Position_Name, Total_Compensation}) => 
-            <tr key={Emp_ID}>
-                <td>{Emp_ID}</td>
-                <td>{LName}, {FName}</td>
-                <td>{Position_Name}</td>
-                <td>{Total_Compensation}</td>
+        let renderEmployee = this.state.employees.map(({EmployeeID, LastName, FirstName, Position, Compensation}) => 
+            <tr key={EmployeeID.toString()}>
+                <td>{EmployeeID}</td>
+                <td>{LastName}, {FirstName}</td>
+                <td>{Position}</td>
+                <td>{Compensation}</td>
                 <td><a href="#" className="text-success">more info</a></td>
             </tr>
         );

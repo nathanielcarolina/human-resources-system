@@ -22,11 +22,11 @@ class Performance extends Component {
     }
 
     render() {
-        let renderEmployee = this.state.employees.map(({Emp_ID, LName, FName, Rating_Date, Rating}) => 
-            <tr key={Emp_ID}>
-                <td>{Emp_ID}</td>
-                <td>{LName}, {FName}</td>
-                <td>{Rating_Date}</td>
+        let renderEmployee = this.state.employees.map(({EmployeeID, LastName, FirstName, RatingDate, Rating}) => 
+            <tr key={EmployeeID.toString()}>
+                <td>{EmployeeID}</td>
+                <td>{LastName}, {FirstName}</td>
+                <td>{RatingDate}</td>
                 <td>{Rating}</td>
                 <td><a href="#" className="text-success">more info</a></td>
             </tr>
