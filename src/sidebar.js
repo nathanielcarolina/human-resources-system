@@ -102,12 +102,12 @@ class Sidebar extends Component {
                             Payroll
                         </NavLink>
 
-                        <NavLink to="/leave-management"
+                        {/* <NavLink to="/leave-management"
                             className="list-group-item list-group-item-action list-group-item-light"
                             role="tab" >
                             <i className="fas fa-bed mr-2"></i>
                             Leave Management
-                        </NavLink>
+                        </NavLink> */}
 
                         <NavLink to="/performance"
                             className="list-group-item list-group-item-action list-group-item-light"
