@@ -119,7 +119,7 @@ class CandidateNew extends Component {
                 </div>
 
                 <div class="row">
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-3 mb-3">
                         <label for="state">State</label>
                         <select class="custom-select d-block w-100" id="state" required="">
                             <option value="">Choose...</option>
@@ -136,7 +136,14 @@ class CandidateNew extends Component {
                             Zip code required.
                         </div>
                     </div>
-                    <div class="col-md-5 mb-3">
+                    <div class="col-md-2 mb-3">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="city" placeholder="" required="" />
+                        <div class="invalid-feedback">
+                            City Name required.
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
                         <label for="country">Country</label>
                         <select class="custom-select d-block w-100" id="country" required="">
                             <option value="">Choose...</option>
@@ -169,14 +176,21 @@ class CandidateNew extends Component {
                         <h4 className="mb-3">Personal Information</h4>
                         <form className="needs-validation form-group mb-5" noValidate>
                             <div className="row">
-                                <div className="col-md-6 mb-3">
+                                <div className="col-md-4 mb-3">
                                     <label htmlFor="firstName">First Name</label>
                                     <input type="text" className="form-control" id="firstName" placeholder="" value="" required=""/>
                                     <div className="invalid-feedback">
                                     Valid first name is required.
                                     </div>
                                 </div>
-                                <div className="col-md-6 mb-3">
+                                <div className="col-md-4 mb-3">
+                                    <label htmlFor="middleName">Middle Name</label>
+                                    <input type="text" className="form-control" id="middleName" placeholder="" value="" required=""/>
+                                    <div className="invalid-feedback">
+                                    Valid middle name is required.
+                                    </div>
+                                </div>
+                                <div className="col-md-4 mb-3">
                                     <label htmlFor="lastName">Last Name</label>
                                     <input type="text" className="form-control" id="lastName" placeholder="" value="" required=""/>
                                     <div className="invalid-feedback">
@@ -184,13 +198,41 @@ class CandidateNew extends Component {
                                     </div>
                                 </div>
                             </div>
-
-                            <div className="mb-3">
-                                <label htmlFor="email">Personal Email</label>
-                                <input type="email" className="form-control" id="email" placeholder="you@example.com"/>
-                                <div className="invalid-feedback">
-                                    Please enter a valid email address.
+                            <div className="row">
+                                <div className="col-md-6 mb-3">
+                                    <label htmlFor="email">Personal Email</label>
+                                    <input type="email" className="form-control" id="email" placeholder="you@example.com"/>
+                                    <div className="invalid-feedback">
+                                        Please enter a valid email address.
+                                    </div>
                                 </div>
+                                <div className="col-md-6 mb-3">
+                                    <label htmlFor="phone_no">Personal Phone</label>
+                                    <input type="email" className="form-control" id="phone_no" placeholder="(+01)######"/>
+                                    <div className="invalid-feedback">
+                                        Please enter a valid Phone No.
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-md-6 mb-3">
+                                    <label className="mr-2" htmlFor="end_date">Date of Birth</label>
+                                    <input type="date" className="form-control" id="dob" />
+                                    <div className="invalid-feedback">
+                                        Date of Birth
+                                    </div>
+                                    </div>
+                                 <div className="col-md-6 mb-3">
+                                    <label className="mr-2" htmlFor="Identity">Identity</label>
+                                    <input type="text" className="form-control" id="identiy" />
+                                    <div className="invalid-feedback">
+                                        National Identity
+                                    </div>
+                                    
+                                    
+
+                                </div>
+
                             </div>
 
                             {renderAddress}
@@ -338,6 +380,10 @@ class CandidateNew extends Component {
                                 <input type="file" name="file"/>
                             </div>
 
+                            <div class="form-group">
+                                <label for="Review">Review</label>
+                                <textarea class="form-control" id="Review" rows="3"></textarea>
+                            </div>
                             <button className="btn btn-primary btn-lg btn-block btn-success" type="submit">Submit</button>
                         </form>
                     </div>  
