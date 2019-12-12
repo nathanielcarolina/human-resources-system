@@ -29,13 +29,13 @@ class Router extends Component {
         <Route path="/departments/quality-assurance" component={DepartmentQualityAssurance} />
         <Route path="/candidate/new" component={CandidateNew} />
         <Route path="/candidate/edit" component={CandidateNew} />
+        <Route path="/employee/edit/:id" component={EmployeeEdit} />
         <Route path="/employee-information" component={EmployeeInformation} />
         <Route path="/payroll" component={Payroll} />
         <Route path="/leave-management" component={LeaveManagement} />
         <Route path="/performance" component={Performance} />
         <Route path="/equipment" component={Equipment} />
         <Route path="/separation" component={Separation} />
-        <Route path="/employee/edit" component={EmployeeEdit} />
       </Switch>
     );
   }
