@@ -143,6 +143,14 @@ class Sidebar extends Component {
                                 Edit Candidate
                         </Link>
 
+                        {/* <Link to="/employee/edit"
+                            role="tab" 
+                            aria-controls="employee-edit" 
+                            className="list-group-item list-group-item-action list-group-item-light recruitment-list d-none">
+                                <i class="fas fa-user-cog mr-2 ml-4"></i>
+                                Edit Employee
+                        </Link> */}
+
                         {/* <a 
                             href="#list-employee-form" 
                             id="list-employee-form-list" 
