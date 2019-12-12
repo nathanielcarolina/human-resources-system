@@ -22,10 +22,10 @@ class LeaveManagement extends Component {
     }
 
     render() {
-        let renderEmployee = this.state.employees.map(({Emp_ID, LName, FName, Total_Availed_Leaves, Total_Remaining_Leaves}) => 
-            <tr key={Emp_ID}>
-                <td>{Emp_ID}</td>
-                <td>{LName}, {FName}</td>
+        let renderEmployee = this.state.employees.map(({EmployeeID, LastName, FirstName, Total_Availed_Leaves, Total_Remaining_Leaves}) => 
+            <tr key={EmployeeID.toString()}>
+                <td>{EmployeeID}</td>
+                <td>{LastName}, {FirstName}</td>
                 <td>{Total_Availed_Leaves}</td>
                 <td>{Total_Remaining_Leaves}</td>
                 <td><a href="#" className="text-success">more info</a></td>

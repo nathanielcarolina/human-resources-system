@@ -30,7 +30,7 @@ class EmployeeEdit extends Component {
                                 class="list-group-item list-group-item-light list-group-item-action d-flex justify-content-between lh-condensed active">
                                 <div><h6 class="my-0">Personal Information</h6></div>
                             </a>
-                            <a 
+                            {/* <a 
                                 id="list-education-work-history-list" 
                                 data-toggle="list" 
                                 href="#list-education-work-history" 
@@ -38,7 +38,7 @@ class EmployeeEdit extends Component {
                                 aria-controls="education-work-history"
                                 class="list-group-item list-group-item-light list-group-item-action d-flex justify-content-between lh-condensed">
                                 <div><h6 class="my-0">Education and Work History</h6></div>
-                            </a>
+                            </a> */}
                             <a href="#" class="list-group-item list-group-item-light list-group-item-action d-flex justify-content-between lh-condensed">
                                 <div><h6 class="my-0">Skills</h6></div>
                             </a>
@@ -51,12 +51,12 @@ class EmployeeEdit extends Component {
                             <a href="#" class="list-group-item list-group-item-light list-group-item-action d-flex justify-content-between lh-condensed">
                                 <div><h6 class="my-0">Performance</h6></div>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-light list-group-item-action d-flex justify-content-between lh-condensed">
+                            {/* <a href="#" class="list-group-item list-group-item-light list-group-item-action d-flex justify-content-between lh-condensed">
                                 <div><h6 class="my-0">Equipment</h6></div>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-light list-group-item-action d-flex justify-content-between lh-condensed">
+                            </a> */}
+                            {/* <a href="#" class="list-group-item list-group-item-light list-group-item-action d-flex justify-content-between lh-condensed">
                                 <div><h6 class="my-0">Separation</h6></div>
-                            </a>
+                            </a> */}
                             {/* <li class="list-group-item d-flex justify-content-between lh-condensed">
                                 <div><h6 class="my-0">Leave Application</h6></div>
                             </li> */}
@@ -158,7 +158,7 @@ class EmployeeEdit extends Component {
 
                                     <div class="custom-control custom-checkbox mb-2">
                                         <input type="checkbox" class="custom-control-input" id="same-address" />
-                                        <label class="custom-control-label" for="same-address">Permanent address is the same as my correspondence address</label>
+                                        <label class="custom-control-label" for="same-address">Permanent address is the same as correspondence address</label>
                                     </div>
                                 </div>
                                 <button class="btn btn-success" type="submit">Save Changes</button>
