@@ -3,22 +3,36 @@ import React, { Component } from 'react';
 const EmployeeEditPersonalInformation = (props) => {
     if (props.currentEmployee && 
         props.departments && 
-        props.currentDepartment && 
+        props.currentDepartmentID && 
+        props.currentDepartmentPositions && 
         props.managers &&
-        props.employeeStatuses) {
+        props.employeeStatuses &&
+        props.addresses) {
         
         let currentEmployee = props.currentEmployee;
         let departments = props.departments;
         let managers = props.managers;
         let employeeStatuses = props.employeeStatuses;
+        let currentDepartmentPositions = props.currentDepartmentPositions;
+        let addresses = props.addresses;
 
         console.log(departments);
 
         let renderDepartments = departments.map(({ Dept_ID, Dept_Name }) =>
             <option 
                 key={Dept_ID.toString()} 
-                selected={Dept_Name === currentEmployee.Department ? 'true' : ''} >
+                value={Dept_ID} 
+                selected={Dept_ID === currentEmployee.Dept_ID ? 'true' : ''} >
                     {Dept_Name}
+            </option>
+        ); 
+
+        let renderCurrentDepartmentPositions = currentDepartmentPositions.map(({ Position_ID, Position_Name }) =>
+            <option 
+                key={Position_ID.toString()} 
+                value={Position_ID} 
+                selected={Position_Name === currentEmployee.Position ? 'true' : ''} >
+                    {Position_Name}
             </option>
         ); 
 
@@ -83,8 +97,12 @@ const EmployeeEditPersonalInformation = (props) => {
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="Position">Position</label>
-                            <input class="form-control" id="Position" type="text" placeholder={currentEmployee.Position} />
+                            <div class="form-group">
+                                <label for="Position">Position</label>
+                                <select class="form-control" id="Position">
+                                    {renderCurrentDepartmentPositions}
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -111,14 +129,27 @@ const EmployeeEditPersonalInformation = (props) => {
                             <input type="email" class="form-control" id="WorkEmail" placeholder={currentEmployee.WorkEmail} readOnly />
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="contact_Number">Contact Number</label>
-                            <input class="form-control" id="contact_Number" type="text" placeholder={currentEmployee.contact_Number} />
+                            <label for="WorkContact">Work Contact Number</label>
+                            <input class="form-control" id="WorkContact" type="text" defaultValue={currentEmployee.WorkContact} />
                         </div>
                     </div>
 
                     <hr className="my-4" />
                     <div className="bg-gray rounded-lg px-3 py-2 mb-4">
-                        <fieldset class="form-group">
+
+                        {/* <div class="form-group">
+                            <label for="AddressType">Address Type</label>
+                            <select class="form-control" id="AddressType">
+                                <option 
+                                    key="Permanent" 
+                                    value="Permanent" 
+                                    selected={Dept_ID === currentEmployee.Dept_ID ? 'true' : ''} >
+                                        {Dept_Name}
+                                </option>
+                            </select>
+                        </div> */}
+
+                        {/* <fieldset class="form-group">
                             <legend class="col-form-label">Address Type</legend>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="addressType" id="addressPermanent" value="Permanent" />
@@ -132,11 +163,17 @@ const EmployeeEditPersonalInformation = (props) => {
                                     Correspondence Address
                                 </label>
                             </div>
-                        </fieldset>
+                        </fieldset> */}
 
-                        <div class="mb-3">
+                        <div class="mb-3 mt-2">
                             <label for="address">Address Line 1</label>
-                            <input type="text" class="form-control" id="address1" placeholder="1234 Main St" required="" />
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="address1"
+                                defaultValue={addresses[0] ? addresses[0].Address_Line1 : ''} 
+                                placeholder="1234 Main St" 
+                                required="" />
                             <div class="invalid-feedback">
                                 Please enter your shipping address.
                             </div>
@@ -144,32 +181,72 @@ const EmployeeEditPersonalInformation = (props) => {
 
                         <div class="mb-3">
                             <label for="address2">Address Line 2<span class="text-muted ml-2">(Optional)</span></label>
-                            <input type="text" class="form-control" id="address2" placeholder="Apartment or suite" />
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="address2" 
+                                defaultValue={addresses[0] ? addresses[0].Address_Line2 : ''} 
+                                placeholder="Apartment or suite" />
                         </div>
 
                         <div class="row">
-                            <div class="col-md-4 mb-3">
+                            <div class="col-md-6 mb-3">
+                                <label for="City">City</label>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="City" 
+                                    defaultValue={addresses[0] ? addresses[0].City : ''} 
+                                    placeholder="" 
+                                    required="" />
+                                <div class="invalid-feedback">
+                                    City required.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
                                 <label for="state">State</label>
                                 <select class="custom-select d-block w-100" id="state" required="">
-                                    <option value="">Choose...</option>
-                                    <option>California</option>
+                                    <option selected={addresses[0] ? (addresses[0].State === 'Bavaria' ? 'true' : '') : ''}>Bavaria</option>
+                                    <option selected={addresses[0] ? (addresses[0].State === 'Lower Saxony' ? 'true' : '') : ''}>Lower Saxony</option>
+                                    <option selected={addresses[0] ? (addresses[0].State === 'Baden-Württemberg' ? 'true' : '') : ''}>Baden-Württemberg</option>
+                                    <option selected={addresses[0] ? (addresses[0].State === 'North Rhine-Westphalia' ? 'true' : '') : ''}>North Rhine-Westphalia</option>
+                                    <option selected={addresses[0] ? (addresses[0].State === 'Brandenburg' ? 'true' : '') : ''}>Brandenburg</option>
+                                    <option selected={addresses[0] ? (addresses[0].State === 'Mecklenburg-Vorpommern' ? 'true' : '') : ''}>Mecklenburg-Vorpommern</option>
+                                    <option selected={addresses[0] ? (addresses[0].State === 'Hesse' ? 'true' : '') : ''}>Hesse</option>
+                                    <option selected={addresses[0] ? (addresses[0].State === 'Saxony-Anhalt' ? 'true' : '') : ''}>Saxony-Anhalt</option>
+                                    <option selected={addresses[0] ? (addresses[0].State === 'Rhineland-Palatinate' ? 'true' : '') : ''}>Rhineland-Palatinate</option>
+                                    <option selected={addresses[0] ? (addresses[0].State === 'Saxony' ? 'true' : '') : ''}>Saxony</option>
+                                    <option selected={addresses[0] ? (addresses[0].State === 'Thuringia' ? 'true' : '') : ''}>Thuringia</option>
+                                    <option selected={addresses[0] ? (addresses[0].State === 'Schleswig-Holstein' ? 'true' : '') : ''}>Schleswig-Holstein</option>
+                                    <option selected={addresses[0] ? (addresses[0].State === 'Saarland' ? 'true' : '') : ''}>Saarland</option>
+                                    <option selected={addresses[0] ? (addresses[0].State === 'Berlin' ? 'true' : '') : ''}>Berlin</option>
+                                    <option selected={addresses[0] ? (addresses[0].State === 'Hamburg' ? 'true' : '') : ''}>Hamburg</option>
+                                    <option selected={addresses[0] ? (addresses[0].State === 'Bremen' ? 'true' : '') : ''}>Bremen</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Please provide a valid state.
                                 </div>
                             </div>
-                            <div class="col-md-3 mb-3">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
                                 <label for="zip">Zip</label>
-                                <input type="text" class="form-control" id="zip" placeholder="" required="" />
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="zip" 
+                                    defaultValue={addresses[0] ? addresses[0].Zipcode : ''}
+                                    placeholder="" 
+                                    required="" />
                                 <div class="invalid-feedback">
                                     Zip code required.
                                 </div>
                             </div>
-                            <div class="col-md-5 mb-3">
+                            <div class="col-md-6 mb-3">
                                 <label for="country">Country</label>
                                 <select class="custom-select d-block w-100" id="country" required="">
-                                    <option value="">Choose...</option>
-                                    <option>United States</option>
+                                    <option>Deutschland</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Please select a valid country.
@@ -177,12 +254,12 @@ const EmployeeEditPersonalInformation = (props) => {
                             </div>
                         </div>
 
-                        <div class="custom-control custom-checkbox mb-2">
+                        {/* <div class="custom-control custom-checkbox mb-2">
                             <input type="checkbox" class="custom-control-input" id="same-address" />
                             <label class="custom-control-label" for="same-address">Permanent address is the same as correspondence address</label>
-                        </div>
+                        </div> */}
                     </div>
-                    <button class="btn btn-success" type="submit">Save Changes</button>
+                    <input type="button" class="btn btn-success" type="submit" value="Save Changes" />
                 </form>
             </>
         )

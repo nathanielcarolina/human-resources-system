@@ -11,12 +11,13 @@ class EmployeeEdit extends Component {
         super(props);
         this.state = {
             currentEmployee: null,
-            currentDepartment: null,
-            currentDepartmentPositions: null,
+            currentDepartmentID: null,
+            currentDepartmentPositions: [],
             currentManager: null,
             departments: null,
             employeeStatuses: null,
-            managers: []
+            managers: [],
+            addresses: []
         };
     }
 
@@ -29,10 +30,11 @@ class EmployeeEdit extends Component {
         fetch(`http://localhost:4000/employee/${id}`)
         .then(response => response.json())
         .then(response => this.setState({ currentEmployee: response.data[0] }, () => {
-            this.setDepartment(this.state.currentEmployee.Department);
+            this.setDepartmentID(this.state.currentEmployee.Dept_ID);
             this.getDepartments();
             this.getManagers();
             this.getEmployeeStatuses();
+            this.getAddresses();
         }))
         .catch(err => console.error(err));
     }
@@ -44,8 +46,8 @@ class EmployeeEdit extends Component {
         .catch(err => console.error(err));
     }
 
-    getPositions = _ => {
-        fetch('http://localhost:4000/positions')
+    getCurrentDepartmentPositions = _ => {
+        fetch(`http://localhost:4000/department/${this.state.currentDepartmentID}`)
         .then(response => response.json())
         .then(response => this.setState({ currentDepartmentPositions: response.data }))
         .catch(err => console.error(err));
@@ -65,8 +67,17 @@ class EmployeeEdit extends Component {
         .catch(err => console.error(err));
     }
 
-    setDepartment = (currentDepartment) => {
-        this.setState({ currentDepartment: currentDepartment })
+    setDepartmentID = (currentDepartmentID) => {
+        this.setState({ currentDepartmentID: currentDepartmentID }, () => {
+            this.getCurrentDepartmentPositions();
+        })
+    }
+
+    getAddresses = _ => {
+        fetch(`http://localhost:4000/address/${this.state.currentEmployee.PersonID}`)
+        .then(response => response.json())
+        .then(response => this.setState({ addresses: response.data }))
+        .catch(err => console.error(err));
     }
 
     render() {
@@ -148,9 +159,11 @@ class EmployeeEdit extends Component {
                             <EmployeeEditPersonalInformation 
                                 currentEmployee={currentEmployee} 
                                 departments={this.state.departments} 
-                                currentDepartment={this.state.currentDepartment}
+                                currentDepartmentID={this.state.currentDepartmentID} 
+                                currentDepartmentPositions={this.state.currentDepartmentPositions} 
                                 managers={this.state.managers}
-                                employeeStatuses={this.state.employeeStatuses} />
+                                employeeStatuses={this.state.employeeStatuses}
+                                addresses={this.state.addresses} />
                         </div>
 
                         <div class="tab-pane fade" id="list-payroll" role="tabpanel" aria-labelledby="list-payroll-list">
