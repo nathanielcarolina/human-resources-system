@@ -36,7 +36,8 @@ class Performance extends Component {
                 <h4 className="mb-4">Performance Information</h4>
                 <TableTemplate 
                     tableHeaders={["ID", "Name", "Rating Date", "Rating"]} 
-                    renderEmployee={renderEmployee} />
+                    renderEmployee={renderEmployee}
+                    employees={this.state.employees} />
             </>
         );
     }

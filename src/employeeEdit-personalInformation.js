@@ -47,28 +47,28 @@ const EmployeeEditPersonalInformation = (props) => {
                 <form class="needs-validation mb-5" novalidate="">
                     <div class="row">
                         <div class="col-md-4 mb-3">
-                            <label for="empID">Employee ID</label>
+                            <label htmlFor="empID">Employee ID</label>
                             <input class="form-control" id="empID" type="text" placeholder={currentEmployee.EmployeeID} readOnly />
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-4 mb-3">
-                            <label for="lastName">Last Name</label>
+                            <label htmlFor="lastName">Last Name</label>
                             <input type="text" class="form-control" id="lastName" placeholder={currentEmployee.LastName} value="" required="" readOnly />
                             <div class="invalid-feedback">
                             Valid last name is required.
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="firstName">First Name</label>
+                            <label htmlFor="firstName">First Name</label>
                             <input type="text" class="form-control" id="firstName" placeholder={currentEmployee.FirstName} value="" required="" readOnly />
                             <div class="invalid-feedback">
                             Valid first name is required.
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="firstName">Middle Name</label>
+                            <label htmlFor="firstName">Middle Name</label>
                             <input type="text" class="form-control" id="middleName" placeholder={currentEmployee.MiddleName} value="" required="" readOnly />
                             <div class="invalid-feedback">
                             Valid middle name is required.
@@ -79,7 +79,7 @@ const EmployeeEditPersonalInformation = (props) => {
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <label for="Department">Department</label>
+                                <label htmlFor="Department">Department</label>
                                 <select name="Department" class="form-control" id="Department" value={props.Department} onChange={props.handleChange}>
                                     {renderDepartments}
                                 </select>
@@ -87,7 +87,7 @@ const EmployeeEditPersonalInformation = (props) => {
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <label for="Position">Position</label>
+                                <label htmlFor="Position">Position</label>
                                 <select name="Position" class="form-control" id="Position" value={props.Position} onChange={props.handleChange}>
                                     {renderCurrentDepartmentPositions}
                                 </select>
@@ -97,7 +97,7 @@ const EmployeeEditPersonalInformation = (props) => {
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <label for="Manager">Manager</label>
+                                <label htmlFor="Manager">Manager</label>
                                 <select name="Manager" class="form-control" id="Manager" value={props.Manager} onChange={props.handleChange}>
                                     {renderManagers}
                                 </select>
@@ -105,7 +105,7 @@ const EmployeeEditPersonalInformation = (props) => {
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <label for="EmployeeStatus">Employee Status</label>
+                                <label htmlFor="EmployeeStatus">Employee Status</label>
                                 <select name="EmployeeStatus" class="form-control" id="EmployeeStatus" value={props.EmployeeStatus} onChange={props.handleChange}>
                                     {renderEmployeeStatuses}
                                 </select>
@@ -114,11 +114,11 @@ const EmployeeEditPersonalInformation = (props) => {
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="WorkEmail">Work Email</label>
+                            <label htmlFor="WorkEmail">Work Email</label>
                             <input type="email" class="form-control" id="WorkEmail" placeholder={currentEmployee.WorkEmail} readOnly />
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="PersonalContact">Contact Number</label>
+                            <label htmlFor="PersonalContact">Contact Number</label>
                             <input name="PersonalContact" class="form-control" id="PersonalContact" type="text" value={props.PersonalContact} onChange={props.handleChange} />
                         </div>
                     </div>
@@ -155,7 +155,7 @@ const EmployeeEditPersonalInformation = (props) => {
                         </fieldset> */}
 
                         <div class="mb-3 mt-2">
-                            <label for="Address1">Address Line 1</label>
+                            <label htmlFor="Address1">Address Line 1</label>
                             <input 
                                 type="text" 
                                 name="Address1"
@@ -170,7 +170,7 @@ const EmployeeEditPersonalInformation = (props) => {
                         </div>
 
                         <div class="mb-3">
-                            <label for="Address2">Address Line 2<span class="text-muted ml-2">(Optional)</span></label>
+                            <label htmlFor="Address2">Address Line 2<span class="text-muted ml-2">(Optional)</span></label>
                             <input 
                                 type="text" 
                                 name="Address2"
@@ -182,7 +182,7 @@ const EmployeeEditPersonalInformation = (props) => {
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="City">City</label>
+                                <label htmlFor="City">City</label>
                                 <input 
                                     type="text" 
                                     name="City"
@@ -196,7 +196,7 @@ const EmployeeEditPersonalInformation = (props) => {
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="State">State</label>
+                                <label htmlFor="State">State</label>
                                 <select name="State" value={props.State} onChange={props.handleChange} class="custom-select d-block w-100" id="State" required="">
                                     <option>Select State</option>
                                     <option>Bavaria</option>
@@ -224,7 +224,7 @@ const EmployeeEditPersonalInformation = (props) => {
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="Zip">Zip</label>
+                                <label htmlFor="Zip">Zip</label>
                                 <input 
                                     type="text" 
                                     name="Zip"
@@ -238,7 +238,7 @@ const EmployeeEditPersonalInformation = (props) => {
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="Country">Country</label>
+                                <label htmlFor="Country">Country</label>
                                 <select class="custom-select d-block w-100" id="Country" required="">
                                     <option>Deutschland</option>
                                 </select>

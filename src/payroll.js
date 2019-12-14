@@ -36,7 +36,8 @@ class Payroll extends Component {
                 <h4 className="mb-4">Payroll Information</h4>
                 <TableTemplate 
                     tableHeaders={["ID", "Name", "Position", "Total Compensation"]} 
-                    renderEmployee={renderEmployee} />
+                    renderEmployee={renderEmployee}
+                    employees={this.state.employees} />
             </>
         );
     }

@@ -21,7 +21,6 @@ class EmployeeInformation extends Component {
     }
 
     render() {
-
         let renderEmployee = this.state.employees.map(({ EmployeeID, Department, LastName, FirstName, Position, Status }) =>
             <tr key={EmployeeID.toString()}>
                 <td>{EmployeeID}</td>
@@ -77,7 +76,7 @@ class EmployeeInformation extends Component {
                 </div>
 
                 <div className="row mb-2">
-                    <div className="col-6 text-muted"><span>Showing 1-5 of 10</span></div>
+                    <div className="col-6 text-muted"><span>Showing {this.state.employees.length} of {this.state.employees.length}</span></div>
                     <div className="col-6 text-right">
                         <select className="mr-4 text-muted" id="numberRecords">
                             <option value="5">5 per page</option>
