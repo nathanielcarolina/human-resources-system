@@ -17,12 +17,97 @@ class EmployeeEdit extends Component {
             departments: null,
             employeeStatuses: null,
             managers: [],
-            addresses: []
+            addresses: [],
+            Department: null,
+            Position: null,
+            Manager: null,
+            EmployeeStatus: null,
+            PersonalContact: null,
+            Address1: null,
+            Address2: null,
+            City: null,
+            State: null,
+            Zip: null,
+            //////Payroll
+            Compensation: null,
+            Bonus: null,
+            Increment: null,
+            BankName: null,
+            IBAN: null,
+            BIC: null
         };
     }
 
     componentDidMount() {
         this.getEmployee();
+    }
+
+    handleSubmitPersonalInformation = (event) => {
+        // console.log(
+        //     this.state.Department, 
+        //     this.state.Position, 
+        //     this.state.Manager, 
+        //     this.state.EmployeeStatus, 
+        //     this.state.PersonalContact,
+        //     this.state.Address1,
+        //     this.state.Address2,
+        //     this.state.City,
+        //     this.state.State,
+        //     this.state.Zip
+        //     );
+
+        let body = JSON.stringify({ 
+            Department: this.state.Department, 
+            Position: this.state.Position, 
+            Manager: this.state.Manager, 
+            EmployeeStatus: this.state.EmployeeStatus, 
+            PersonalContact: this.state.PersonalContact,
+            Address1: this.state.Address1,
+            Address2: this.state.Address2,
+            City: this.state.City,
+            State: this.state.State,
+            Zip: this.state.Zip,
+            EmployeeID: this.state.currentEmployee.EmployeeID
+          });
+
+        console.log(body);
+        fetch('http://localhost:4000/employee/edit/personal-information', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+                // 'X-CSRF-Token': document.querySelector('head > meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: body
+        })
+        // .then((response) => {
+        //     return response.json()
+        //     .then(json => {
+        //         if (response.ok) {
+        //             return json;
+        //         } else {
+        //             return Promise.reject(json);
+        //         }
+        //     })
+        // })
+    }
+
+    handleSubmitPayroll = (event) => {
+        let body = JSON.stringify({ 
+            Compensation: this.state.Compensation,
+            Bonus: this.state.Bonus,
+            Increment: this.state.Increment,
+            BankName: this.state.BankName,
+            IBAN: this.state.IBAN,
+            BIC: this.state.BIC,
+            EmployeeID: this.state.currentEmployee.EmployeeID
+        });
+
+        console.log(body);
+        fetch('http://localhost:4000/employee/edit/payroll', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: body
+        })
     }
 
     getEmployee = _ => {
@@ -35,6 +120,18 @@ class EmployeeEdit extends Component {
             this.getManagers();
             this.getEmployeeStatuses();
             this.getAddresses();
+            this.setState({ Department: this.state.currentEmployee.Dept_ID });
+            this.setState({ Position: this.state.currentEmployee.Position_ID });
+            this.setState({ Manager: this.state.currentEmployee.ReportingManager });
+            this.setState({ EmployeeStatus: this.state.currentEmployee.Emp_Status_ID });
+            this.setState({ PersonalContact: this.state.currentEmployee.PersonalContact }); 
+            //////Payroll
+            this.setState({ Compensation: this.state.currentEmployee.Compensation });
+            this.setState({ Bonus: this.state.currentEmployee.Bonus });
+            this.setState({ Increment: this.state.currentEmployee.Increment });
+            this.setState({ BankName: this.state.currentEmployee.BankName });
+            this.setState({ IBAN: this.state.currentEmployee.IBAN });
+            this.setState({ BIC: this.state.currentEmployee.BIC });
         }))
         .catch(err => console.error(err));
     }
@@ -76,8 +173,20 @@ class EmployeeEdit extends Component {
     getAddresses = _ => {
         fetch(`http://localhost:4000/address/${this.state.currentEmployee.PersonID}`)
         .then(response => response.json())
-        .then(response => this.setState({ addresses: response.data }))
+        .then(response => this.setState({ addresses: response.data }, () => {
+            if (this.state.addresses[0]) {
+                this.setState({ Address1: this.state.addresses[0].Address_Line1 });
+                this.setState({ Address2: this.state.addresses[0].Address_Line2 });
+                this.setState({ City: this.state.addresses[0].City });
+                this.setState({ State: this.state.addresses[0].State });
+                this.setState({ Zip: this.state.addresses[0].Zipcode });    
+            }
+        }))
         .catch(err => console.error(err));
+    }
+
+    handleChange = (event) => {
+        this.setState({ [event.target.name]: event.target.value });
     }
 
     render() {
@@ -157,17 +266,32 @@ class EmployeeEdit extends Component {
                     <div class="col-md-9 px-5 tab-content">
                         <div class="tab-pane fade show active" id="list-personal-information" role="tabpanel" aria-labelledby="list-personal-information-list">
                             <EmployeeEditPersonalInformation 
-                                currentEmployee={currentEmployee} 
-                                departments={this.state.departments} 
-                                currentDepartmentID={this.state.currentDepartmentID} 
-                                currentDepartmentPositions={this.state.currentDepartmentPositions} 
-                                managers={this.state.managers}
-                                employeeStatuses={this.state.employeeStatuses}
-                                addresses={this.state.addresses} />
+                                state={this.state} 
+                                Department={this.state.Department}
+                                Position={this.state.Position}
+                                Manager={this.state.Manager}
+                                EmployeeStatus={this.state.EmployeeStatus}
+                                PersonalContact={this.state.PersonalContact} 
+                                Address1={this.state.Address1}
+                                Address2={this.state.Address2}
+                                City={this.state.City}
+                                State={this.state.State}
+                                Zip={this.state.Zip}
+                                handleSubmit={this.handleSubmitPersonalInformation}
+                                handleChange={this.handleChange} />
                         </div>
 
                         <div class="tab-pane fade" id="list-payroll" role="tabpanel" aria-labelledby="list-payroll-list">
-                            <EmployeeEditPayroll currentEmployee={currentEmployee} />
+                            <EmployeeEditPayroll 
+                                currentEmployee={this.state.currentEmployee}
+                                Compensation={this.state.Compensation}
+                                Bonus={this.state.Bonus}
+                                Increment={this.state.Increment}
+                                BankName={this.state.BankName}
+                                IBAN={this.state.IBAN}
+                                BIC={this.state.BIC}
+                                handleSubmit={this.handleSubmitPayroll}
+                                handleChange={this.handleChange} />
                         </div>
 
                         <div class="tab-pane fade" id="list-leave-management" role="tabpanel" aria-labelledby="list-leave-management-list">

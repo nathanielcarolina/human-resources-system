@@ -1,54 +1,43 @@
 import React, { Component } from 'react';
 
 const EmployeeEditPersonalInformation = (props) => {
-    if (props.currentEmployee && 
-        props.departments && 
-        props.currentDepartmentID && 
-        props.currentDepartmentPositions && 
-        props.managers &&
-        props.employeeStatuses &&
-        props.addresses) {
-        
-        let currentEmployee = props.currentEmployee;
-        let departments = props.departments;
-        let managers = props.managers;
-        let employeeStatuses = props.employeeStatuses;
-        let currentDepartmentPositions = props.currentDepartmentPositions;
-        let addresses = props.addresses;
 
-        console.log(departments);
+    if (props.state.currentEmployee && 
+        props.state.departments && 
+        props.state.currentDepartmentID && 
+        props.state.currentDepartmentPositions && 
+        props.state.managers &&
+        props.state.employeeStatuses &&
+        props.state.addresses) {
+        
+        let currentEmployee = props.state.currentEmployee;
+        let departments = props.state.departments;
+        let managers = props.state.managers;
+        let employeeStatuses = props.state.employeeStatuses;
+        let currentDepartmentPositions = props.state.currentDepartmentPositions;
+        let addresses = props.state.addresses;
 
         let renderDepartments = departments.map(({ Dept_ID, Dept_Name }) =>
-            <option 
-                key={Dept_ID.toString()} 
-                value={Dept_ID} 
-                selected={Dept_ID === currentEmployee.Dept_ID ? 'true' : ''} >
-                    {Dept_Name}
+            <option key={Dept_ID.toString()} value={Dept_ID} >
+                {Dept_Name}
             </option>
         ); 
 
         let renderCurrentDepartmentPositions = currentDepartmentPositions.map(({ Position_ID, Position_Name }) =>
-            <option 
-                key={Position_ID.toString()} 
-                value={Position_ID} 
-                selected={Position_Name === currentEmployee.Position ? 'true' : ''} >
-                    {Position_Name}
+            <option key={Position_ID.toString()} value={Position_ID} >
+                {Position_Name}
             </option>
         ); 
 
         let renderEmployeeStatuses = employeeStatuses.map(({ Emp_Status_ID, Employee_Status_Name }) =>
-            <option 
-                key={Emp_Status_ID.toString()} 
-                selected={Employee_Status_Name === currentEmployee.Status ? 'true' : ''} >
-                    {Employee_Status_Name}
+            <option key={Emp_Status_ID.toString()} value={Emp_Status_ID} >
+                {Employee_Status_Name}
             </option>
         ); 
 
         let renderManagers = managers.map(({ EmployeeID, LastName, FirstName }) =>
-            <option 
-                key={EmployeeID.toString()} 
-                selected={EmployeeID === currentEmployee.ReportingManager ? 'true' : ''} >
-                    {LastName}, {FirstName}
+            <option key={EmployeeID.toString()} value={EmployeeID} >
+                {LastName}, {FirstName}
             </option>
         ); 
 
@@ -91,7 +80,7 @@ const EmployeeEditPersonalInformation = (props) => {
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
                                 <label for="Department">Department</label>
-                                <select class="form-control" id="Department">
+                                <select name="Department" class="form-control" id="Department" value={props.Department} onChange={props.handleChange}>
                                     {renderDepartments}
                                 </select>
                             </div>
@@ -99,7 +88,7 @@ const EmployeeEditPersonalInformation = (props) => {
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
                                 <label for="Position">Position</label>
-                                <select class="form-control" id="Position">
+                                <select name="Position" class="form-control" id="Position" value={props.Position} onChange={props.handleChange}>
                                     {renderCurrentDepartmentPositions}
                                 </select>
                             </div>
@@ -109,7 +98,7 @@ const EmployeeEditPersonalInformation = (props) => {
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
                                 <label for="Manager">Manager</label>
-                                <select class="form-control" id="Manager">
+                                <select name="Manager" class="form-control" id="Manager" value={props.Manager} onChange={props.handleChange}>
                                     {renderManagers}
                                 </select>
                             </div>
@@ -117,7 +106,7 @@ const EmployeeEditPersonalInformation = (props) => {
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
                                 <label for="EmployeeStatus">Employee Status</label>
-                                <select class="form-control" id="EmployeeStatus">
+                                <select name="EmployeeStatus" class="form-control" id="EmployeeStatus" value={props.EmployeeStatus} onChange={props.handleChange}>
                                     {renderEmployeeStatuses}
                                 </select>
                             </div>
@@ -129,8 +118,8 @@ const EmployeeEditPersonalInformation = (props) => {
                             <input type="email" class="form-control" id="WorkEmail" placeholder={currentEmployee.WorkEmail} readOnly />
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="WorkContact">Work Contact Number</label>
-                            <input class="form-control" id="WorkContact" type="text" defaultValue={currentEmployee.WorkContact} />
+                            <label for="PersonalContact">Contact Number</label>
+                            <input name="PersonalContact" class="form-control" id="PersonalContact" type="text" value={props.PersonalContact} onChange={props.handleChange} />
                         </div>
                     </div>
 
@@ -166,12 +155,13 @@ const EmployeeEditPersonalInformation = (props) => {
                         </fieldset> */}
 
                         <div class="mb-3 mt-2">
-                            <label for="address">Address Line 1</label>
+                            <label for="Address1">Address Line 1</label>
                             <input 
                                 type="text" 
+                                name="Address1"
                                 class="form-control" 
-                                id="address1"
-                                defaultValue={addresses[0] ? addresses[0].Address_Line1 : ''} 
+                                id="Address1"
+                                value={props.Address1} onChange={props.handleChange} 
                                 placeholder="1234 Main St" 
                                 required="" />
                             <div class="invalid-feedback">
@@ -180,12 +170,13 @@ const EmployeeEditPersonalInformation = (props) => {
                         </div>
 
                         <div class="mb-3">
-                            <label for="address2">Address Line 2<span class="text-muted ml-2">(Optional)</span></label>
+                            <label for="Address2">Address Line 2<span class="text-muted ml-2">(Optional)</span></label>
                             <input 
                                 type="text" 
+                                name="Address2"
                                 class="form-control" 
-                                id="address2" 
-                                defaultValue={addresses[0] ? addresses[0].Address_Line2 : ''} 
+                                id="Address2" 
+                                value={props.Address2} onChange={props.handleChange} 
                                 placeholder="Apartment or suite" />
                         </div>
 
@@ -194,9 +185,10 @@ const EmployeeEditPersonalInformation = (props) => {
                                 <label for="City">City</label>
                                 <input 
                                     type="text" 
+                                    name="City"
                                     class="form-control" 
                                     id="City" 
-                                    defaultValue={addresses[0] ? addresses[0].City : ''} 
+                                    value={props.City} onChange={props.handleChange} 
                                     placeholder="" 
                                     required="" />
                                 <div class="invalid-feedback">
@@ -204,24 +196,25 @@ const EmployeeEditPersonalInformation = (props) => {
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="state">State</label>
-                                <select class="custom-select d-block w-100" id="state" required="">
-                                    <option selected={addresses[0] ? (addresses[0].State === 'Bavaria' ? 'true' : '') : ''}>Bavaria</option>
-                                    <option selected={addresses[0] ? (addresses[0].State === 'Lower Saxony' ? 'true' : '') : ''}>Lower Saxony</option>
-                                    <option selected={addresses[0] ? (addresses[0].State === 'Baden-Württemberg' ? 'true' : '') : ''}>Baden-Württemberg</option>
-                                    <option selected={addresses[0] ? (addresses[0].State === 'North Rhine-Westphalia' ? 'true' : '') : ''}>North Rhine-Westphalia</option>
-                                    <option selected={addresses[0] ? (addresses[0].State === 'Brandenburg' ? 'true' : '') : ''}>Brandenburg</option>
-                                    <option selected={addresses[0] ? (addresses[0].State === 'Mecklenburg-Vorpommern' ? 'true' : '') : ''}>Mecklenburg-Vorpommern</option>
-                                    <option selected={addresses[0] ? (addresses[0].State === 'Hesse' ? 'true' : '') : ''}>Hesse</option>
-                                    <option selected={addresses[0] ? (addresses[0].State === 'Saxony-Anhalt' ? 'true' : '') : ''}>Saxony-Anhalt</option>
-                                    <option selected={addresses[0] ? (addresses[0].State === 'Rhineland-Palatinate' ? 'true' : '') : ''}>Rhineland-Palatinate</option>
-                                    <option selected={addresses[0] ? (addresses[0].State === 'Saxony' ? 'true' : '') : ''}>Saxony</option>
-                                    <option selected={addresses[0] ? (addresses[0].State === 'Thuringia' ? 'true' : '') : ''}>Thuringia</option>
-                                    <option selected={addresses[0] ? (addresses[0].State === 'Schleswig-Holstein' ? 'true' : '') : ''}>Schleswig-Holstein</option>
-                                    <option selected={addresses[0] ? (addresses[0].State === 'Saarland' ? 'true' : '') : ''}>Saarland</option>
-                                    <option selected={addresses[0] ? (addresses[0].State === 'Berlin' ? 'true' : '') : ''}>Berlin</option>
-                                    <option selected={addresses[0] ? (addresses[0].State === 'Hamburg' ? 'true' : '') : ''}>Hamburg</option>
-                                    <option selected={addresses[0] ? (addresses[0].State === 'Bremen' ? 'true' : '') : ''}>Bremen</option>
+                                <label for="State">State</label>
+                                <select name="State" value={props.State} onChange={props.handleChange} class="custom-select d-block w-100" id="State" required="">
+                                    <option>Select State</option>
+                                    <option>Bavaria</option>
+                                    <option>Lower Saxony</option>
+                                    <option>Baden-Württemberg</option>
+                                    <option>North Rhine-Westphalia</option>
+                                    <option>Brandenburg</option>
+                                    <option>Mecklenburg-Vorpommern</option>
+                                    <option>Hesse</option>
+                                    <option>Saxony-Anhalt</option>
+                                    <option>Rhineland-Palatinate</option>
+                                    <option>Saxony</option>
+                                    <option>Thuringia</option>
+                                    <option>Schleswig-Holstein</option>
+                                    <option>Saarland</option>
+                                    <option>Berlin</option>
+                                    <option>Hamburg</option>
+                                    <option>Bremen</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Please provide a valid state.
@@ -231,12 +224,13 @@ const EmployeeEditPersonalInformation = (props) => {
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="zip">Zip</label>
+                                <label for="Zip">Zip</label>
                                 <input 
                                     type="text" 
+                                    name="Zip"
                                     class="form-control" 
-                                    id="zip" 
-                                    defaultValue={addresses[0] ? addresses[0].Zipcode : ''}
+                                    id="Zip" 
+                                    value={props.Zip} onChange={props.handleChange} 
                                     placeholder="" 
                                     required="" />
                                 <div class="invalid-feedback">
@@ -244,8 +238,8 @@ const EmployeeEditPersonalInformation = (props) => {
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="country">Country</label>
-                                <select class="custom-select d-block w-100" id="country" required="">
+                                <label for="Country">Country</label>
+                                <select class="custom-select d-block w-100" id="Country" required="">
                                     <option>Deutschland</option>
                                 </select>
                                 <div class="invalid-feedback">
@@ -259,7 +253,7 @@ const EmployeeEditPersonalInformation = (props) => {
                             <label class="custom-control-label" for="same-address">Permanent address is the same as correspondence address</label>
                         </div> */}
                     </div>
-                    <input type="button" class="btn btn-success" type="submit" value="Save Changes" />
+                    <input type="button" onClick={props.handleSubmit} class="btn btn-success" value="Save Changes" />
                 </form>
             </>
         )

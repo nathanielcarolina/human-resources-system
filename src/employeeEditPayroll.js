@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 
 const EmployeeEditPayroll = (props) => {
-    if (props.currentEmployee) {
+    if (props.Compensation && 
+        props.Bonus && 
+        props.Increment && 
+        props.BankName && 
+        props.IBAN && 
+        props.BIC &&
+        props.currentEmployee) {
         let currentEmployee = props.currentEmployee;
         return(
             <>
@@ -31,23 +37,16 @@ const EmployeeEditPayroll = (props) => {
 
                     <div class="row">
                         <div class="col-md-4 mb-3">
-                            <label for="shiftDetails">Shift Details</label>
-                            <input class="form-control" id="shiftDetails" type="text" placeholder={currentEmployee.Status} />
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <label for="compensation">Compensation</label>
-                            <input class="form-control" id="compensation" type="text" placeholder={currentEmployee.Status} />
+                            <label for="Compensation">Compensation</label>
+                            <input name="Compensation" class="form-control" id="Compensation" type="text" value={props.Compensation} onChange={props.handleChange} />
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="bonus">Bonus</label>
-                            <input class="form-control" id="bonus" type="text" placeholder={currentEmployee.ReportingManager} />
+                            <label for="Bonus">Bonus</label>
+                            <input name="Bonus" class="form-control" id="Bonus" type="text" value={props.Bonus} onChange={props.handleChange} />
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="increment">Increment</label>
-                            <input class="form-control" id="increment" type="text" placeholder={currentEmployee.ReportingManager} />
+                            <label for="Increment">Increment</label>
+                            <input name="Increment" class="form-control" id="Increment" type="text" value={props.Increment} onChange={props.handleChange} />
                         </div>
                     </div>
 
@@ -55,28 +54,35 @@ const EmployeeEditPayroll = (props) => {
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="bankName">Bank Name</label>
-                            <input class="form-control" id="bankName" type="text" placeholder={currentEmployee.Status} />
+                            <label for="BankName">Bank Name</label>
+                            <input name="BankName" class="form-control" id="BankName" type="text" value={props.BankName} onChange={props.handleChange} />
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="IBAN">IBAN</label>
-                            <input class="form-control" id="IBAN" type="text" placeholder={currentEmployee.Status} />
+                            <input name="IBAN" class="form-control" id="IBAN" type="text" value={props.IBAN} onChange={props.handleChange} />
                         </div>
                         <div class="col-md-6 mb-4">
                             <label for="BIC">BIC</label>
-                            <input class="form-control" id="BIC" type="text" placeholder={currentEmployee.ReportingManager} />
+                            <input name="BIC" class="form-control" id="BIC" type="text" value={props.BIC} onChange={props.handleChange} />
                         </div>
                     </div>
-                    <button class="btn btn-success" type="submit">Save Changes</button>
+                    <input type="button" onClick={props.handleSubmit} class="btn btn-success" value="Save Changes" />
                 </form>
             </>
         )
       } else {
         return(
-            <div>Loading...</div>
+            <>
+                <div className="text-center">
+                    <div className="mb-3">Loading...</div>
+                    <div class="spinner-border text-secondary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </>
         )
       
     }
