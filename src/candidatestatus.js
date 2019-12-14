@@ -22,7 +22,7 @@ class Candidatestatus extends Component {
 
     render() {
 
-        let renderCandidate = this.state.candidates.map(({ CandidateID, LastName, FirstName, Position, Status }) =>
+        let renderCandidate = this.state.candidates.map(({ CandidateID, LastName, FirstName, Status , Position}) =>
             <tr key={CandidateID.toString()}>
                 <td>{CandidateID}</td>
                 
@@ -30,7 +30,7 @@ class Candidatestatus extends Component {
                 <td>{Position}</td>
                 <td>{Status}</td>
                 <td><a href={"/candidatestatus" + CandidateID} className="btn btn-success">HIRE</a></td>
-                <td><a href={"/candidatestatus" + CandidateID} className="btn btn-danger">REJECT</a></td>
+                <td><a href={"/candidatestatus" + CandidateID} className="btn btn-danger">Reject</a></td>
             </tr>
         ); 
 
