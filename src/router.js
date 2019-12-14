@@ -14,6 +14,7 @@ import DepartmentQualityAssurance from './departmentQualityAssurance.js';
 import CandidateNew from './candidateNew.js';
 import Separation from './separation.js'
 import EmployeeEdit from './employeeEdit.js';
+import Candidatestatus from '/.candidatestatus.js';
 
 
 class Router extends Component {
@@ -36,6 +37,7 @@ class Router extends Component {
         <Route path="/performance" component={Performance} />
         <Route path="/equipment" component={Equipment} />
         <Route path="/separation" component={Separation} />
+        <Route path="/candidate/status" component={Candidatestatus} />
       </Switch>
     );
   }
