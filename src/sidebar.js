@@ -142,6 +142,13 @@ class Sidebar extends Component {
                                 <i className="fas fa-user-edit mr-2 ml-4"></i>
                                 Edit Candidate
                         </Link>
+                        <Link to="/candidate/status"
+                            role="tab" 
+                            aria-controls="candidatestatus" 
+                            className="list-group-item list-group-item-action list-group-item-light recruitment-list d-none">
+                                <i className="fas fa-user-edit mr-2 ml-4"></i>
+                                 Hire/Reject
+                        </Link>
                         
 
                         {/* <Link to="/employee/edit"
