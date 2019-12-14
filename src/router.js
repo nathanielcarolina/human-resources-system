@@ -14,7 +14,7 @@ import DepartmentQualityAssurance from './departmentQualityAssurance.js';
 import CandidateNew from './candidateNew.js';
 import Separation from './separation.js'
 import EmployeeEdit from './employeeEdit.js';
-import Candidatestatus from '/.candidatestatus.js';
+import Candidatestatus from './candidatestatus.js';
 
 
 class Router extends Component {
