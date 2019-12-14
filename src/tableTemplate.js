@@ -9,7 +9,7 @@ class TableTemplate extends Component {
         return (
             <>
                 <div className="row mb-2">
-                    <div className="col-6 text-muted"><span>Showing 1-5 of 10</span></div>
+                    <div className="col-6 text-muted"><span>Showing {this.props.employees.length} of {this.props.employees.length}</span></div>
                     <div className="col-6 text-right">
                         <select className="mr-4 text-muted" id="numberRecords">
                             <option value="5">5 per page</option>
