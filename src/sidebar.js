@@ -135,13 +135,13 @@ class Sidebar extends Component {
                                 Add New Candidate
                         </Link>
 
-                        <Link to="/candidate/edit"
+                        {/* <Link to="/candidate/edit"
                             role="tab" 
                             aria-controls="candidate-edit" 
                             className="list-group-item list-group-item-action list-group-item-light recruitment-list d-none">
                                 <i className="fas fa-user-edit mr-2 ml-4"></i>
                                 Edit Candidate
-                        </Link>
+                        </Link> */}
                         <Link to="/candidate/status"
                             role="tab" 
                             aria-controls="candidatestatus" 
