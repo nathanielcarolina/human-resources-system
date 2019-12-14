@@ -9,18 +9,18 @@ const EmployeeEditLeaveManagement = (props) => {
                 <form class="needs-validation mb-5" novalidate="">
                     <div class="row">
                         <div class="col-md-4 mb-3">
-                            <label for="empID">Employee ID</label>
+                            <label htmlFor="empID">Employee ID</label>
                             <input class="form-control" id="empID" type="text" placeholder={currentEmployee.EmployeeID} readOnly />
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="lastName">Last Name</label>
+                            <label htmlFor="lastName">Last Name</label>
                             <input type="text" class="form-control" id="lastName" placeholder={currentEmployee.LastName} value="" required="" readOnly />
                             <div class="invalid-feedback">
                             Valid last name is required.
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="firstName">First Name</label>
+                            <label htmlFor="firstName">First Name</label>
                             <input type="text" class="form-control" id="firstName" placeholder={currentEmployee.FirstName} value="" required="" readOnly />
                             <div class="invalid-feedback">
                             Valid first name is required.
@@ -32,22 +32,22 @@ const EmployeeEditLeaveManagement = (props) => {
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="sick-leaves-availed">Sick Leaves Availed</label>
+                            <label htmlFor="sick-leaves-availed">Sick Leaves Availed</label>
                             <input class="form-control" id="sick-leaves-availed" type="text" placeholder={currentEmployee.Status} readOnly />
                         </div>
                         <div class="col-md-6 mb-4">
-                            <label for="casual-leaves-availed">Casual Leaves Availed</label>
+                            <label htmlFor="casual-leaves-availed">Casual Leaves Availed</label>
                             <input class="form-control" id="casual-leaves-availed" type="text" placeholder={currentEmployee.ReportingManager} readOnly />
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="sick-leaves-remaining">Sick Leaves Remaining</label>
+                            <label htmlFor="sick-leaves-remaining">Sick Leaves Remaining</label>
                             <input class="form-control" id="sick-leaves-remaining" type="text" placeholder={currentEmployee.Status} readOnly />
                         </div>
                         <div class="col-md-6 mb-4">
-                            <label for="casual-leaves-remaining">Casual Leaves Remaining</label>
+                            <label htmlFor="casual-leaves-remaining">Casual Leaves Remaining</label>
                             <input class="form-control" id="casual-leaves-remaining" type="text" placeholder={currentEmployee.ReportingManager} readOnly />
                         </div>
                     </div>
