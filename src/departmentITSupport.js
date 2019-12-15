@@ -15,20 +15,27 @@ class DepartmentITSupport extends Component {
     }
 
     getEmployees = _ => {
-        fetch('http://localhost:4000/employees')
+        fetch('http://localhost:4000/department-employees/6')
         .then(response => response.json())
         .then(response => this.setState({ employees: response.data }))
         .catch(err => console.error(err));
     }
 
+    getManager = (id) => {
+        fetch(`http://localhost:4000/employee/${id}`)
+        .then(response => response.json())
+        .then(response => { return response.data })
+        .catch(err => console.error(err));
+    }
+
     render() {
-        let renderEmployee = this.state.employees.map(({Emp_ID, LName, FName, Position_Name, Manager_LName, Manager_FName}) => 
-            <tr key={Emp_ID}>
-                <td>{Emp_ID}</td>
-                <td>{LName}, {FName}</td>
-                <td>{Position_Name}</td>
-                <td>{Manager_LName}, {Manager_FName}</td>
-                <td><a href="#" className="text-success">more info</a></td>
+        let renderEmployee = this.state.employees.map(({EmployeeID, LastName, FirstName, Position, ReportingManager}) => 
+            <tr key={EmployeeID}>
+                <td>{EmployeeID}</td>
+                <td>{LastName}, {FirstName}</td>
+                <td>{Position}</td>
+                <td>{this.getManager(ReportingManager) ? this.getManager(ReportingManager).LastName + ", " : ''}{this.getManager(ReportingManager) ? this.getManager(ReportingManager).FirstName : ''}</td>
+                <td><a href={"/employee/edit/" + EmployeeID} className="text-success">more info</a></td>
             </tr>
         );
         return (
@@ -36,7 +43,8 @@ class DepartmentITSupport extends Component {
                 <h4 className="mb-4">IT Support Department</h4>
                 <TableTemplate 
                     tableHeaders={["ID", "Name", "Position", "Manager"]} 
-                    renderEmployee={renderEmployee} />
+                    renderEmployee={renderEmployee}
+                    employees={this.state.employees} />
             </>
         );
     }
