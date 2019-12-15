@@ -30,7 +30,7 @@ class Sidebar extends Component {
                         <img src={employeePicture} className="headshot mr-3" alt="Sample HR Employee Picture" />
                         <div className="media-body align-self-center">
                             <h5 className="m-0">Hello Patricia!</h5>
-                            <a href="#" className="small text-secondary">Sign out<i className="fas fa-sign-out-alt ml-1"></i></a>
+                            {/* <a href="#" className="small text-secondary">Sign out<i className="fas fa-sign-out-alt ml-1"></i></a> */}
                         </div>
                     </div>
                     <div id="sidebar" className="list-group list-group-flush" role="tablist">
