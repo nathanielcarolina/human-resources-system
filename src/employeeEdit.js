@@ -80,6 +80,10 @@ class EmployeeEdit extends Component {
             },
             body: body
         })
+        .then(response => {
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
+            window.alert(`Employee ${this.state.currentEmployee.LastName}, ${this.state.currentEmployee.FirstName} successfully edited.`);
+        })
         // .then((response) => {
         //     return response.json()
         //     .then(json => {
@@ -108,6 +112,10 @@ class EmployeeEdit extends Component {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: body
+        })
+        .then(response => {
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
+            window.alert(`Employee ${this.state.currentEmployee.LastName}, ${this.state.currentEmployee.FirstName} successfully edited.`);
         })
     }
 
