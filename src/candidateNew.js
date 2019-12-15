@@ -113,6 +113,10 @@ class CandidateNew extends Component {
             headers: { 'Content-Type': 'application/json' },
             body: body
         })
+        .then(response => {
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
+            window.alert(`Candidate ${this.state.LName}, ${this.state.FName} successfully added.`);
+        })
     }
 
     // addEducation = () => {
