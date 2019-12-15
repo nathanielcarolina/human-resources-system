@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import TableTemplate from './tableTemplate.js';
 
 class Equipment extends Component {
 
@@ -27,15 +26,24 @@ class Equipment extends Component {
                 <td>{Equipment_ID}</td>
                 <td>{Equipment_Name}</td>
                 <td>{Assigned_To}</td>
-                <td><a href="#" className="text-success">edit assignment</a></td>
+                {/* <td><a href="#" className="text-success">edit assignment</a></td> */}
             </tr>
         );
         return (
             <>
                 <h4 className="mb-4">Equipment Information</h4>
-                <TableTemplate 
-                    tableHeaders={["Equipment ID", "Equipment Name", "Assigned To"]} 
-                    renderEmployee={renderEquipment} />
+                <table className="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col" className='nosort'>Equipment ID</th>
+                            <th scope="col" className='nosort'>Equipment Name</th>
+                            <th scope="col" className='nosort'>Assigned To</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {renderEquipment}
+                    </tbody>
+                </table>
             </>
         );
     }
