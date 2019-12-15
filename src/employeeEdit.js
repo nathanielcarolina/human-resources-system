@@ -153,7 +153,11 @@ class EmployeeEdit extends Component {
     getCurrentDepartmentPositions = _ => {
         fetch(`http://localhost:4000/department/${this.state.currentDepartmentID}`)
         .then(response => response.json())
-        .then(response => this.setState({ currentDepartmentPositions: response.data }))
+        .then(response => {
+            console.log(response.data);
+            console.log(this.state.Position);
+            this.setState({ currentDepartmentPositions: response.data });
+        } )
         .catch(err => console.error(err));
     }
 
@@ -193,7 +197,13 @@ class EmployeeEdit extends Component {
     }
 
     handleChange = (event) => {
+        console.log(event.target.value);
         this.setState({ [event.target.name]: event.target.value });
+    }
+
+    handleChangeDepartment = (event) => {
+        this.setState({ [event.target.name]: event.target.value });
+        this.setDepartmentID(event.target.value);
     }
 
     render() {
@@ -299,7 +309,8 @@ class EmployeeEdit extends Component {
                                 State={this.state.State}
                                 Zip={this.state.Zip}
                                 handleSubmit={this.handleSubmitPersonalInformation}
-                                handleChange={this.handleChange} />
+                                handleChange={this.handleChange}
+                                handleChangeDepartment={this.handleChangeDepartment} />
                         </div>
 
                         <div class="tab-pane fade" id="list-payroll" role="tabpanel" aria-labelledby="list-payroll-list">
