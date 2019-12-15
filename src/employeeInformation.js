@@ -21,13 +21,13 @@ class EmployeeInformation extends Component {
     }
 
     render() {
-        let renderEmployee = this.state.employees.map(({ EmployeeID, Department, LastName, FirstName, Position, Hiring_Status }) =>
+        let renderEmployee = this.state.employees.map(({ EmployeeID, Department, LastName, FirstName, Position, Status }) =>
             <tr key={EmployeeID.toString()}>
                 <td>{EmployeeID}</td>
                 <td>{Department}</td>
                 <td>{LastName}, {FirstName}</td>
                 <td>{Position}</td>
-                <td>{Hiring_Status}</td>
+                <td>{Status}</td>
                 <td><a href={"/employee/edit/" + EmployeeID} className="text-success">more info</a></td>
             </tr>
         ); 
