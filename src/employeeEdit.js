@@ -10,6 +10,7 @@ class EmployeeEdit extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            employeeNotFound: false,
             currentEmployee: null,
             currentDepartmentID: null,
             currentDepartmentPositions: [],
@@ -114,25 +115,31 @@ class EmployeeEdit extends Component {
         let id = this.props.match.params.id;
         fetch(`http://localhost:4000/employee/${id}`)
         .then(response => response.json())
-        .then(response => this.setState({ currentEmployee: response.data[0] }, () => {
-            this.setDepartmentID(this.state.currentEmployee.Dept_ID);
-            this.getDepartments();
-            this.getManagers();
-            this.getEmployeeStatuses();
-            this.getAddresses();
-            this.setState({ Department: this.state.currentEmployee.Dept_ID });
-            this.setState({ Position: this.state.currentEmployee.Position_ID });
-            this.setState({ Manager: this.state.currentEmployee.ReportingManager });
-            this.setState({ EmployeeStatus: this.state.currentEmployee.Emp_Status_ID });
-            this.setState({ PersonalContact: this.state.currentEmployee.PersonalContact }); 
-            //////Payroll
-            this.setState({ Compensation: this.state.currentEmployee.Compensation });
-            this.setState({ Bonus: this.state.currentEmployee.Bonus });
-            this.setState({ Increment: this.state.currentEmployee.Increment });
-            this.setState({ BankName: this.state.currentEmployee.BankName });
-            this.setState({ IBAN: this.state.currentEmployee.IBAN });
-            this.setState({ BIC: this.state.currentEmployee.BIC });
-        }))
+        .then(response => {
+            if (response.data[0]) {
+                this.setState({ currentEmployee: response.data[0] }, () => {
+                this.setDepartmentID(this.state.currentEmployee.Dept_ID);
+                this.getDepartments();
+                this.getManagers();
+                this.getEmployeeStatuses();
+                this.getAddresses();
+                this.setState({ Department: this.state.currentEmployee.Dept_ID });
+                this.setState({ Position: this.state.currentEmployee.Position_ID });
+                this.setState({ Manager: this.state.currentEmployee.ReportingManager });
+                this.setState({ EmployeeStatus: this.state.currentEmployee.Emp_Status_ID });
+                this.setState({ PersonalContact: this.state.currentEmployee.PersonalContact }); 
+                //////Payroll
+                this.setState({ Compensation: this.state.currentEmployee.Compensation });
+                this.setState({ Bonus: this.state.currentEmployee.Bonus });
+                this.setState({ Increment: this.state.currentEmployee.Increment });
+                this.setState({ BankName: this.state.currentEmployee.BankName });
+                this.setState({ IBAN: this.state.currentEmployee.IBAN });
+                this.setState({ BIC: this.state.currentEmployee.BIC });                
+                }); 
+            } else {
+                this.setState({ employeeNotFound: true });
+            }
+        })
         .catch(err => console.error(err));
     }
 
@@ -192,6 +199,20 @@ class EmployeeEdit extends Component {
     render() {
         let { currentEmployee } = this.state;
         console.log(currentEmployee);
+
+        if (this.state.employeeNotFound === true) {
+            return (
+                <div className="container">
+                    <div className="row justify-content-center mt-5">
+                        <div className="col-6 bg-gray rounded-lg text-center">
+                            <h2 className="my-4"><i class="far fa-frown-open mr-3"></i>Employee {this.props.match.params.id} does not exist.</h2>
+                            <h4 className="my-4">Try searching using another Employee ID.</h4>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+
         return (
             <div className="container">
                 <h4 className="mb-4">Edit Employee</h4>
