@@ -11,7 +11,7 @@ class CandidateNew extends Component {
             employeeStatuses: null, 
             FName: null,
             LName: null,
-            MName: null,
+            // MName: null,
             PersonalEmail: null,
             PersonalContact: null,
             DOB: null,
@@ -84,7 +84,7 @@ class CandidateNew extends Component {
         let body = JSON.stringify({ 
             FName: this.state.FName,
             LName: this.state.LName,
-            MName: this.state.MName,
+            // MName: this.state.MName,
             PersonalEmail: this.state.PersonalEmail,
             PersonalContact: this.state.PersonalContact,
             DOB: this.state.DOB,
@@ -181,24 +181,24 @@ class CandidateNew extends Component {
                             <h4 className="mb-3">Personal Information</h4>
                             <form className="needs-validation form-group mb-5" noValidate>
                                 <div className="row">
-                                    <div className="col-md-4 mb-3">
+                                    <div className="col-md-6 mb-3">
                                         <label htmlFor="FName">First Name</label>
                                         <input name="FName" type="text" className="form-control" id="FName" placeholder="" required="" onChange={this.handleChange} />
                                         <div className="invalid-feedback">
                                             Valid first name is required.
                                         </div>
                                     </div>
-                                    <div className="col-md-4 mb-3">
+                                    <div className="col-md-6 mb-3">
                                         <label htmlFor="LName">Last Name</label>
                                         <input name="LName" type="text" className="form-control" id="LName" placeholder="" required="" onChange={this.handleChange} />
                                         <div className="invalid-feedback">
                                             Valid last name is required.
                                         </div>
                                     </div>
-                                    <div className="col-md-4 mb-3">
+                                    {/* <div className="col-md-4 mb-3">
                                         <label htmlFor="MName">Middle Name</label>
                                         <input name="MName" type="text" className="form-control" id="MName" placeholder="" required="" onChange={this.handleChange} />
-                                    </div>
+                                    </div> */}
                                 </div>
                                 <div className="row">
                                     <div className="col-md-6 mb-3">
