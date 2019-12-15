@@ -51,7 +51,7 @@ class Candidatestatus extends Component {
 
         return (
             <>
-                <h4 className="">Candidate Status</h4>
+                <h4 className="mb-4">Candidate Status</h4>
                 {/* <div className="my-4 p-3 bg-gray rounded">
                     <p className="small text-uppercase text-muted m-0">Filter by:</p>
                     <form className="form-inline"> 
