@@ -20,7 +20,7 @@ class Navbar extends Component {
     render() {
         return (
             <nav className="navbar fixed-top navbar-dark bg-success">
-                <a className="navbar-brand" href="#">SNARS Human Resources System</a>
+                <a className="navbar-brand" href="/"><span className="font-weight-bold border rounded-lg px-2 py-1 mr-3">SNARS</span>Human Resources System</a>
                 <form className="form-inline my-2 my-lg-0" onSubmit={this.handleSubmit} >
                     <span className="navbar-text text-white small text-uppercase mr-3">Employee Search:</span>
                     <input 
