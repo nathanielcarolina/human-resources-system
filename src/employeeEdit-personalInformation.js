@@ -23,11 +23,15 @@ const EmployeeEditPersonalInformation = (props) => {
             </option>
         ); 
 
-        let renderCurrentDepartmentPositions = currentDepartmentPositions.map(({ Position_ID, Position_Name }) =>
-            <option key={Position_ID.toString()} value={Position_ID} >
-                {Position_Name}
-            </option>
-        ); 
+        let renderCurrentDepartmentPositions;
+
+        if ( currentDepartmentPositions ) {
+            renderCurrentDepartmentPositions = currentDepartmentPositions.map(({ Position_ID, Position_Name }) =>
+                <option key={Position_ID.toString()} value={Position_ID} >
+                    {Position_Name}
+                </option>
+            ); 
+        } 
 
         let renderEmployeeStatuses = employeeStatuses.map(({ Emp_Status_ID, Employee_Status_Name }) =>
             <option key={Emp_Status_ID.toString()} value={Emp_Status_ID} >
@@ -50,9 +54,6 @@ const EmployeeEditPersonalInformation = (props) => {
                             <label htmlFor="empID">Employee ID</label>
                             <input class="form-control" id="empID" type="text" placeholder={currentEmployee.EmployeeID} readOnly />
                         </div>
-                    </div>
-
-                    <div class="row">
                         <div class="col-md-4 mb-3">
                             <label htmlFor="lastName">Last Name</label>
                             <input type="text" class="form-control" id="lastName" placeholder={currentEmployee.LastName} value="" required="" readOnly />
@@ -67,20 +68,20 @@ const EmployeeEditPersonalInformation = (props) => {
                             Valid first name is required.
                             </div>
                         </div>
-                        <div class="col-md-4 mb-3">
+                        {/* <div class="col-md-4 mb-3">
                             <label htmlFor="firstName">Middle Name</label>
                             <input type="text" class="form-control" id="middleName" placeholder={currentEmployee.MiddleName} value="" required="" readOnly />
                             <div class="invalid-feedback">
                             Valid middle name is required.
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     <hr className="my-4" />
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
                                 <label htmlFor="Department">Department</label>
-                                <select name="Department" class="form-control" id="Department" value={props.Department} onChange={props.handleChange}>
+                                <select name="Department" class="form-control" id="Department" value={props.Department} onChange={props.handleChangeDepartment}>
                                     {renderDepartments}
                                 </select>
                             </div>
@@ -89,6 +90,7 @@ const EmployeeEditPersonalInformation = (props) => {
                             <div class="form-group">
                                 <label htmlFor="Position">Position</label>
                                 <select name="Position" class="form-control" id="Position" value={props.Position} onChange={props.handleChange}>
+                                    <option>Select Position</option>
                                     {renderCurrentDepartmentPositions}
                                 </select>
                             </div>
