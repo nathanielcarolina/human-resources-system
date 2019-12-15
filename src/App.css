@@ -35,6 +35,10 @@ img.headshot {
   top: 56px;
 }
 
+.w-40 {
+  width: 40%;
+}
+
 th.nosort::after {
   content: "\f0dc";
   font-family: "FontAwesome";
