@@ -23,6 +23,7 @@ class Candidatestatus extends Component {
     handleHireCandidate = (Candidate_ID, LName, FName) => {
         fetch(`http://localhost:4000/candidatestatus/edit/${Candidate_ID}/2`, { method: 'POST' })
         .then(response => {
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
             window.alert(`Candidate ${LName}, ${FName} successfully hired.`);
         })
     }
@@ -30,6 +31,7 @@ class Candidatestatus extends Component {
     handleRejectCandidate = (Candidate_ID, LName, FName) => {
         fetch(`http://localhost:4000/candidatestatus/edit/${Candidate_ID}/3`, { method: 'POST' })
         .then(response => {
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
             window.alert(`Candidate ${LName}, ${FName} rejected.`);
         })
     }
