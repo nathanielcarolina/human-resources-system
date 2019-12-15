@@ -20,16 +20,32 @@ class Candidatestatus extends Component {
         .catch(err => console.error(err));
     }
 
+    handleHireCandidate = (Candidate_ID, LName, FName) => {
+        fetch(`http://localhost:4000/candidatestatus/edit/${Candidate_ID}/2`, { method: 'POST' })
+        .then(response => {
+            window.alert(`Candidate ${LName}, ${FName} successfully hired.`);
+        })
+    }
+
+    handleRejectCandidate = (Candidate_ID, LName, FName) => {
+        fetch(`http://localhost:4000/candidatestatus/edit/${Candidate_ID}/3`, { method: 'POST' })
+        .then(response => {
+            window.alert(`Candidate ${LName}, ${FName} rejected.`);
+        })
+    }
+
     render() {
 
-        let renderCandidate = this.state.candidates.map(({ Candidate_ID, FName, LName, Hiring_Status , Position_Name}) =>
+        let renderCandidate = this.state.candidates.map(({ Candidate_ID, FName, LName, Hiring_Status, Position_Name}) =>
             <tr key={Candidate_ID.toString()}>
                 <td>{Candidate_ID}</td>
                 <td>{LName}, {FName}</td>
                 <td>{Position_Name}</td>
                 <td>{Hiring_Status}</td>
-                <td><a href={"/candidatestatus" + Candidate_ID} className="btn btn-success">HIRE</a></td>
-                <td><a href={"/candidatestatus" + Candidate_ID} className="btn btn-danger">Reject</a></td>
+                <td>
+                    <div onClick={ () => this.handleHireCandidate(Candidate_ID, LName, FName) } className="btn btn-success mr-4 w-40">Hire</div>
+                    <div onClick={ () => this.handleRejectCandidate(Candidate_ID, LName, FName) } className="btn btn-danger w-40">Reject</div>
+                </td>
             </tr>
         ); 
 
@@ -69,8 +85,8 @@ class Candidatestatus extends Component {
                 {/* </div> */}
 
                 <div className="row mb-2">
-                    <div className="col-6 text-muted"><span>Showing 1-5 of 10</span></div>
-                    <div className="col-6 text-right">
+                    <div className="col-6 text-muted"><span>Showing {this.state.candidates.length} of {this.state.candidates.length}</span></div>
+                    {/* <div className="col-6 text-right">
                         <select className="mr-4 text-muted" id="numberRecords">
                             <option value="5">5 per page</option>
                             <option value="10">10 per page</option>
@@ -86,7 +102,7 @@ class Candidatestatus extends Component {
                             <button type="button" className="btn btn-light py-0"><i className="fas fa-chevron-left text-muted"></i></button>
                             <button type="button" className="btn btn-light border-left py-0"><i className="fas fa-chevron-right text-muted"></i></button>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
                 <table className="table table-hover">
@@ -96,7 +112,7 @@ class Candidatestatus extends Component {
                             <th scope="col" className='nosort'>Name</th>
                             <th scope="col" className='nosort'>Position</th>
                             <th scope="col" className='nosort'>Status</th>
-                            
+                            <th scope="col" className='nosort'>Decision</th>
                         </tr>
                     </thead>
                     <tbody>
