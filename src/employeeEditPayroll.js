@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
 const EmployeeEditPayroll = (props) => {
-    if (props.Compensation && 
-        props.Bonus && 
-        props.Increment && 
-        props.BankName && 
-        props.IBAN && 
-        props.BIC &&
+    if (//props.Compensation && 
+        // props.Bonus && 
+        // props.Increment && 
+        // props.BankName && 
+        // props.IBAN && 
+        // props.BIC &&
         props.currentEmployee) {
         let currentEmployee = props.currentEmployee;
         return(
