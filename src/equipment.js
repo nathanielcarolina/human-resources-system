@@ -21,11 +21,12 @@ class Equipment extends Component {
     }
 
     render() {
-        let renderEquipment = this.state.equipment.map(({Equipment_ID, Equipment_Name, Assigned_To, Emp_ID}) => 
-            <tr key={Equipment_ID}>
-                <td>{Equipment_ID}</td>
-                <td>{Equipment_Name}</td>
-                <td>{Assigned_To}</td>
+        let renderEquipment = this.state.equipment.map(({Employee_ID, Employee_Name, Equipment, Equiptment_Return}) => 
+            <tr key={Equipment}>
+                <td>{Equipment}</td>
+                <td>{Employee_ID}</td>
+                <td>{Employee_Name}</td>
+                <td>{Equiptment_Return}</td>
                 {/* <td><a href="#" className="text-success">edit assignment</a></td> */}
             </tr>
         );
@@ -35,9 +36,11 @@ class Equipment extends Component {
                 <table className="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col" className='nosort'>Equipment ID</th>
                             <th scope="col" className='nosort'>Equipment Name</th>
+                            <th scope="col" className='nosort'>Employee ID</th>
                             <th scope="col" className='nosort'>Assigned To</th>
+                            <th scope="col" className='nosort'>Equiptment_Return</th>
+
                         </tr>
                     </thead>
                     <tbody>
