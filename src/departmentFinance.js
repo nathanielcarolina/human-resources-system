@@ -21,10 +21,13 @@ class DepartmentFinance extends Component {
         .catch(err => console.error(err));
     }
 
-    getManager = (id) => {
-        fetch(`http://localhost:4000/employee/${id}`)
+    getManager = (EmployeeID, ReportingManager) => {
+        fetch(`http://localhost:4000/employee/${ReportingManager}`)
         .then(response => response.json())
-        .then(response => { return response.data })
+        .then(response => { 
+            let employee = response.data[0];
+            document.getElementById(EmployeeID).textContent = `${employee.LastName}, ${employee.FirstName}`;
+        })
         .catch(err => console.error(err));
     }
 
@@ -34,7 +37,7 @@ class DepartmentFinance extends Component {
                 <td>{EmployeeID}</td>
                 <td>{LastName}, {FirstName}</td>
                 <td>{Position}</td>
-                <td>{this.getManager(ReportingManager) ? this.getManager(ReportingManager).LastName + ", " : ''}{this.getManager(ReportingManager) ? this.getManager(ReportingManager).FirstName : ''}</td>
+                <td id={EmployeeID}>{this.getManager(EmployeeID, ReportingManager)}</td>
                 <td><a href={"/employee/edit/" + EmployeeID} className="text-success">more info</a></td>
             </tr>
         );
