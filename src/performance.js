@@ -6,29 +6,39 @@ class Performance extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            employees: []
+            performances: []
         };
     }
 
     componentDidMount() {
-        this.getEmployees();
+        this.getPerformances();
     }
 
-    getEmployees = _ => {
-        fetch('http://localhost:4000/employees')
+    getPerformances = _ => {
+        fetch('http://localhost:4000/performances')
         .then(response => response.json())
-        .then(response => this.setState({ employees: response.data }))
+        .then(response => this.setState({ performances: response.data }))
+        .catch(err => console.error(err));
+    }
+
+    getEmployee = (Performance_ID, Emp_ID) => {
+        fetch(`http://localhost:4000/employee/${Emp_ID}`)
+        .then(response => response.json())
+        .then(response => { 
+            let employee = response.data[0];
+            document.getElementById(Performance_ID).textContent = `${employee.LastName}, ${employee.FirstName}`;
+        })
         .catch(err => console.error(err));
     }
 
     render() {
-        let renderEmployee = this.state.employees.map(({EmployeeID, LastName, FirstName, RatingDate, Rating}) => 
-            <tr key={EmployeeID.toString()}>
-                <td>{EmployeeID}</td>
-                <td>{LastName}, {FirstName}</td>
-                <td>{RatingDate}</td>
+        let renderPerformances = this.state.performances.map(({Performance_ID, Emp_ID, Rating_Date, Rating}) => 
+            <tr key={Performance_ID}>
+                <td>{Emp_ID}</td>
+                <td id={Performance_ID}>{this.getEmployee(Performance_ID, Emp_ID)}</td>
+                <td>{Rating_Date}</td>
                 <td>{Rating}</td>
-                <td><a href="#" className="text-success">more info</a></td>
+                <td><a href={"/employee/edit/" + Emp_ID} className="text-success">more info</a></td>
             </tr>
         );
         return (
@@ -36,8 +46,8 @@ class Performance extends Component {
                 <h4 className="mb-4">Performance Information</h4>
                 <TableTemplate 
                     tableHeaders={["ID", "Name", "Rating Date", "Rating"]} 
-                    renderEmployee={renderEmployee}
-                    employees={this.state.employees} />
+                    renderEmployee={renderPerformances}
+                    employees={this.state.performances} />
             </>
         );
     }
