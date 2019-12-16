@@ -37,6 +37,11 @@ class EmployeeEdit extends Component {
             BankName: null,
             IBAN: null,
             BIC: null,
+            //////Performance
+            RatingDate: null,
+            RatedBy: null,
+            Rating: null,
+            Comments: null,
             performance: []
         };
     }
@@ -121,6 +126,31 @@ class EmployeeEdit extends Component {
             window.alert(`Employee ${this.state.currentEmployee.LastName}, ${this.state.currentEmployee.FirstName} successfully edited.`);
         })
     }
+    
+    handleSubmitPerformance = (event) => {
+        let body = JSON.stringify({ 
+            RatingDate: this.state.RatingDate,  
+            RatedBy: this.state.RatedBy,  
+            Rating: this.state.Rating,  
+            Comments: this.state.Comments, 
+            EmployeeID: this.state.currentEmployee.EmployeeID
+        });
+        console.log(body);
+        fetch('http://localhost:4000/performance/new', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: body
+        })
+        .then(response => {
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
+            window.alert(`New Performance Rating added for Employee ${this.state.currentEmployee.LastName}, ${this.state.currentEmployee.FirstName}.`);
+            this.getPerformances();
+            this.setState({ RatingDate: "" });
+            this.setState({ RatedBy: "" });
+            this.setState({ Rating: "" });
+            this.setState({ Comments: "" });
+        })
+    }
 
     getEmployee = _ => {
         let id = this.props.match.params.id;
@@ -180,6 +210,16 @@ class EmployeeEdit extends Component {
         .then(response => this.setState({ managers: response.data }))
         .catch(err => console.error(err));
     }
+
+    getManager = (Performance_ID, Emp_ID) => {
+        fetch(`http://localhost:4000/employee/${Emp_ID}`)
+        .then(response => response.json())
+        .then(response => { 
+            let employee = response.data[0];
+            document.getElementById(Performance_ID).textContent = `${employee.LastName}, ${employee.FirstName}`;
+        })
+        .catch(err => console.error(err));
+    }    
 
     getEmployeeStatuses = _ => {
         fetch('http://localhost:4000/employee-statuses')
@@ -353,8 +393,16 @@ class EmployeeEdit extends Component {
 
                         <div class="tab-pane fade" id="list-performance" role="tabpanel" aria-labelledby="list-performance-list">
                             <EmployeeEditPerformance 
+                                state={this.state} 
                                 currentEmployee={currentEmployee}
-                                performance={this.state.performance} />
+                                performance={this.state.performance}
+                                getManager={this.getManager}
+                                RatingDate={this.state.RatingDate} 
+                                RatedBy={this.state.RatedBy} 
+                                Rating={this.state.Rating} 
+                                Comments={this.state.Comments} 
+                                handleChange={this.handleChange}
+                                handleSubmit={this.handleSubmitPerformance} />
                         </div>
                     </div>
                 </div>
