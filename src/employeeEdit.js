@@ -23,6 +23,7 @@ class EmployeeEdit extends Component {
             Position: null,
             Manager: null,
             EmployeeStatus: null,
+            WorkContact: null, 
             PersonalContact: null,
             Address1: null,
             Address2: null,
@@ -35,7 +36,8 @@ class EmployeeEdit extends Component {
             Increment: null,
             BankName: null,
             IBAN: null,
-            BIC: null
+            BIC: null,
+            performance: []
         };
     }
 
@@ -62,6 +64,7 @@ class EmployeeEdit extends Component {
             Position: this.state.Position, 
             Manager: this.state.Manager, 
             EmployeeStatus: this.state.EmployeeStatus, 
+            WorkContact: this.state.WorkContact, 
             PersonalContact: this.state.PersonalContact,
             Address1: this.state.Address1,
             Address2: this.state.Address2,
@@ -131,10 +134,12 @@ class EmployeeEdit extends Component {
                 this.getManagers();
                 this.getEmployeeStatuses();
                 this.getAddresses();
+                this.getPerformances();
                 this.setState({ Department: this.state.currentEmployee.Dept_ID });
                 this.setState({ Position: this.state.currentEmployee.Position_ID });
                 this.setState({ Manager: this.state.currentEmployee.ReportingManager });
                 this.setState({ EmployeeStatus: this.state.currentEmployee.Emp_Status_ID });
+                this.setState({ WorkContact: this.state.currentEmployee.WorkContact }); 
                 this.setState({ PersonalContact: this.state.currentEmployee.PersonalContact }); 
                 //////Payroll
                 this.setState({ Compensation: this.state.currentEmployee.Compensation });
@@ -180,6 +185,13 @@ class EmployeeEdit extends Component {
         fetch('http://localhost:4000/employee-statuses')
         .then(response => response.json())
         .then(response => this.setState({ employeeStatuses: response.data }))
+        .catch(err => console.error(err));
+    }
+
+    getPerformances = _ => {
+        fetch(`http://localhost:4000/performance/${this.state.currentEmployee.EmployeeID}`)
+        .then(response => response.json())
+        .then(response => this.setState({ performance: response.data }))
         .catch(err => console.error(err));
     }
 
@@ -309,7 +321,8 @@ class EmployeeEdit extends Component {
                                 Department={this.state.Department}
                                 Position={this.state.Position}
                                 Manager={this.state.Manager}
-                                EmployeeStatus={this.state.EmployeeStatus}
+                                EmployeeStatus={this.state.EmployeeStatus} 
+                                WorkContact={this.state.WorkContact} 
                                 PersonalContact={this.state.PersonalContact} 
                                 Address1={this.state.Address1}
                                 Address2={this.state.Address2}
@@ -339,9 +352,10 @@ class EmployeeEdit extends Component {
                         </div>
 
                         <div class="tab-pane fade" id="list-performance" role="tabpanel" aria-labelledby="list-performance-list">
-                            <EmployeeEditPerformance currentEmployee={currentEmployee} />
+                            <EmployeeEditPerformance 
+                                currentEmployee={currentEmployee}
+                                performance={this.state.performance} />
                         </div>
-
                     </div>
                 </div>
             </div>
