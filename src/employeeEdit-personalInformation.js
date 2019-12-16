@@ -101,6 +101,7 @@ const EmployeeEditPersonalInformation = (props) => {
                             <div class="form-group">
                                 <label htmlFor="Manager">Manager</label>
                                 <select name="Manager" class="form-control" id="Manager" value={props.Manager} onChange={props.handleChange}>
+                                    <option>Select Manager</option>
                                     {renderManagers}
                                 </select>
                             </div>
@@ -119,8 +120,14 @@ const EmployeeEditPersonalInformation = (props) => {
                             <label htmlFor="WorkEmail">Work Email</label>
                             <input type="email" class="form-control" id="WorkEmail" placeholder={currentEmployee.WorkEmail} readOnly />
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label htmlFor="PersonalContact">Contact Number</label>
+                            <label htmlFor="WorkContact">Work Contact Number</label>
+                            <input name="WorkContact" type="text" class="form-control" id="WorkContact" value={props.WorkContact} onChange={props.handleChange} />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label htmlFor="PersonalContact">Personal Contact Number</label>
                             <input name="PersonalContact" class="form-control" id="PersonalContact" type="text" value={props.PersonalContact} onChange={props.handleChange} />
                         </div>
                     </div>
