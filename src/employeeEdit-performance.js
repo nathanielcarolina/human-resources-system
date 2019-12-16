@@ -9,7 +9,7 @@ const EmployeeEditPerformance = (props) => {
                 <td>{Rating_Date}</td>
                 <td>{Rating}</td>
                 <td>{Comments}</td>
-                {/* <td>{props.getManager(Manager_ID)}</td> */}
+                <td id={Performance_ID}>{props.getManager(Performance_ID, Manager_ID)}</td>
             </tr>
         ); 
         return(
