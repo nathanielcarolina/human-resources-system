@@ -32,7 +32,8 @@ class CandidateNew extends Component {
             Company: null,
             Company_Position: null,
             Company_StartDate: null,
-            Company_EndDate: null
+            Company_EndDate: null,
+            Remarks: null
             // educationNumFields: [1],
             // workNumFields: [1],
             // addressNumFields: [1]
@@ -105,7 +106,8 @@ class CandidateNew extends Component {
             Company: this.state.Company,
             Company_Position: this.state.Company_Position,
             Company_StartDate: this.state.Company_StartDate,
-            Company_EndDate: this.state.Company_EndDate
+            Company_EndDate: this.state.Company_EndDate,
+            Remarks: this.state.Remarks
         });
         console.log(body);
         fetch('http://localhost:4000/candidate/new', {
@@ -439,19 +441,17 @@ class CandidateNew extends Component {
     
                                 {/* <div onClick={this.addWork} className="btn btn-secondary">
                                     Add More Work Experience
-                                </div> */}
-    
-                                <hr className="mb-4"/>
-                               
+                                </div> */}    
                                 {/* <div class="form-group mb-4">
                                     <label class="mr-3">Upload your CV:</label>
                                     <input type="file" name="file"/>
                                 </div> */}
     
-                                {/* <div class="form-group">
-                                    <label for="Review">Review</label>
-                                    <textarea class="form-control" id="Review" rows="3"></textarea>
-                                </div> */}
+                                <div class="form-group mb-4">
+                                    <label for="Remarks">Remarks</label>
+                                    <textarea name="Remarks" className="form-control" id="Remarks" placeholder="Enter remarks regarding the candidate" rows="3" onChange={this.handleChange}></textarea>
+                                </div>
+                                                               
                                 <input type="button" onClick={this.handleSubmitCandidateNew} class="btn btn-success" value="Submit" />
                             </form>
                         </div>  
