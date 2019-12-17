@@ -27,7 +27,7 @@ class Payroll extends Component {
                 <td>{EmployeeID}</td>
                 <td>{LastName}, {FirstName}</td>
                 <td>{Position}</td>
-                <td>{Compensation}</td>
+                <td>{Compensation ? Compensation.toLocaleString("en", {style: "currency", currency: 'USD'}) : ""}</td>
                 <td><a href="#" className="text-success">more info</a></td>
             </tr>
         );
