@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import TableTemplate from './tableTemplate.js';
+import moment from 'moment';
+
 
 class Performance extends Component {
 
@@ -36,7 +38,7 @@ class Performance extends Component {
             <tr key={Performance_ID}>
                 <td>{Emp_ID}</td>
                 <td id={Performance_ID}>{this.getEmployee(Performance_ID, Emp_ID)}</td>
-                <td>{Rating_Date}</td>
+                <td>{moment(Rating_Date).format("MM/DD/YYYY")}</td>
                 <td>{Rating}</td>
                 <td><a href={"/employee/edit/" + Emp_ID} className="text-success">more info</a></td>
             </tr>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 
 const EmployeeEditPerformance = (props) => {
     if (props.currentEmployee) {
@@ -7,7 +8,7 @@ const EmployeeEditPerformance = (props) => {
 
         let renderPerformances = props.performance.map(({ Performance_ID, Rating_Date, Rating, Comments, Manager_ID }) =>
             <tr key={Performance_ID}>
-                <td>{Rating_Date}</td>
+                <td>{moment(Rating_Date).format("MM/DD/YYYY")}</td>
                 <td>{Rating}</td>
                 <td>{Comments}</td>
                 <td id={Performance_ID}>{props.getManager(Performance_ID, Manager_ID)}</td>
