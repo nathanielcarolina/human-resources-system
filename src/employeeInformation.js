@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+const $ = window.$;
 
 class EmployeeInformation extends Component {
 
@@ -11,6 +12,7 @@ class EmployeeInformation extends Component {
 
     componentDidMount() {
         this.getEmployees();
+        // setTimeout(() => {$.bootstrapSortable({ applyLast: true });}, 3*1000);
     }
 
     getEmployees = _ => {
@@ -34,8 +36,8 @@ class EmployeeInformation extends Component {
 
         return (
             <>
-                <h4 className="">Employee Information</h4>
-                <div className="my-4 p-3 bg-gray rounded">
+                <h4 className="mb-4">Employee Information</h4>
+                {/* <div className="my-4 p-3 bg-gray rounded">
                     <p className="small text-uppercase text-muted m-0">Filter by:</p>
                     <form className="form-inline"> 
 
@@ -73,11 +75,11 @@ class EmployeeInformation extends Component {
                         <button type="submit" className="btn btn-outline-secondary">Reset</button>
                     </form>
 
-                </div>
+                </div> */}
 
                 <div className="row mb-2">
                     <div className="col-6 text-muted"><span>Showing {this.state.employees.length} of {this.state.employees.length}</span></div>
-                    <div className="col-6 text-right">
+                    {/* <div className="col-6 text-right">
                         <select className="mr-4 text-muted" id="numberRecords">
                             <option value="5">5 per page</option>
                             <option value="10">10 per page</option>
@@ -93,18 +95,18 @@ class EmployeeInformation extends Component {
                             <button type="button" className="btn btn-light py-0"><i className="fas fa-chevron-left text-muted"></i></button>
                             <button type="button" className="btn btn-light border-left py-0"><i className="fas fa-chevron-right text-muted"></i></button>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
                 <table className="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col" className='nosort'>ID</th>
-                            <th scope="col" className='nosort'>Department</th>
-                            <th scope="col" className='nosort'>Name</th>
-                            <th scope="col" className='nosort'>Position</th>
-                            <th scope="col" className='nosort'>Status</th>
-                            <th scope="col">Details</th>
+                            <th scope="col" className='' data-defaultsign='nospan'>ID</th>
+                            <th scope="col" className='' data-defaultsign='nospan'>Department</th>
+                            <th scope="col" className='' data-defaultsign='nospan'>Name</th>
+                            <th scope="col" className='' data-defaultsign='nospan'>Position</th>
+                            <th scope="col" className='' data-defaultsign='nospan'>Status</th>
+                            <th scope="col" data-defaultsort='disabled'>Details</th>
                         </tr>
                     </thead>
                     <tbody>

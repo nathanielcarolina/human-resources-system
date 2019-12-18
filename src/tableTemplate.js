@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
+const $ = window.$;
 
 class TableTemplate extends Component {
+
+    // componentDidUpdate() {
+    //     $.bootstrapSortable({ applyLast: true });
+    // }
+        
     render() {        
         let tableHeaders = this.props.tableHeaders.map((tableHeader) =>
-            <th scope="col" className='nosort'>{tableHeader}</th>
+            <th scope="col" className='' data-defaultsign='nospan'>{tableHeader}</th>
         );
 
         return (
             <>
                 <div className="row mb-2">
                     <div className="col-6 text-muted"><span>Showing {this.props.employees.length} of {this.props.employees.length}</span></div>
-                    <div className="col-6 text-right">
+                    {/* <div className="col-6 text-right">
                         <select className="mr-4 text-muted" id="numberRecords">
                             <option value="5">5 per page</option>
                             <option value="10">10 per page</option>
@@ -26,14 +32,14 @@ class TableTemplate extends Component {
                             <button type="button" className="btn btn-light py-0"><i className="fas fa-chevron-left text-muted"></i></button>
                             <button type="button" className="btn btn-light border-left py-0"><i className="fas fa-chevron-right text-muted"></i></button>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
                 <table className="table table-hover">
                     <thead>
                         <tr>
                             {tableHeaders}
-                            <th scope="col">Details</th>
+                            <th scope="col" data-defaultsort='disabled'>Details</th>
                         </tr>
                     </thead>
                     <tbody>
