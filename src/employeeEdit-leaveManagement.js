@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 const EmployeeEditLeaveManagement = (props) => {
-    if (props.currentEmployee) {
+    if (props.currentEmployee && props.Leaves) {
         let currentEmployee = props.currentEmployee;
         return(
             <>
@@ -33,22 +33,22 @@ const EmployeeEditLeaveManagement = (props) => {
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label htmlFor="sick-leaves-availed">Sick Leaves Availed</label>
-                            <input class="form-control" id="sick-leaves-availed" type="text" placeholder={currentEmployee.Availed_Sick_Leave} readOnly />
+                            <input class="form-control" id="sick-leaves-availed" type="text" placeholder={props.Leaves[0].Availed_Sick_Leave} readOnly />
                         </div>
                         <div class="col-md-6 mb-4">
                             <label htmlFor="casual-leaves-availed">Casual Leaves Availed</label>
-                            <input class="form-control" id="casual-leaves-availed" type="text" placeholder={currentEmployee.Availed_Casual_Leave} readOnly />
+                            <input class="form-control" id="casual-leaves-availed" type="text" placeholder={props.Leaves[0].Availed_Casual_Leave} readOnly />
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label htmlFor="sick-leaves-remaining">Sick Leaves Remaining</label>
-                            <input class="form-control" id="sick-leaves-remaining" type="text" placeholder={currentEmployee.Total_Sick_Leaves} readOnly />
+                            <input class="form-control" id="sick-leaves-remaining" type="text" placeholder={props.Leaves[0].Total_Sick_Leaves} readOnly />
                         </div>
                         <div class="col-md-6 mb-4">
                             <label htmlFor="casual-leaves-remaining">Casual Leaves Remaining</label>
-                            <input class="form-control" id="casual-leaves-remaining" type="text" placeholder={currentEmployee.Total_Casual_Leaves} readOnly />
+                            <input class="form-control" id="casual-leaves-remaining" type="text" placeholder={props.Leaves[0].Total_Casual_Leaves} readOnly />
                         </div>
                     </div>
                 </form>
