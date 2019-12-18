@@ -25,6 +25,7 @@ class Candidatestatus extends Component {
         .then(response => {
             document.body.scrollTop = document.documentElement.scrollTop = 0;
             window.alert(`Candidate ${LName}, ${FName} successfully hired.`);
+            this.getCandidates();
         })
     }
 
@@ -33,6 +34,7 @@ class Candidatestatus extends Component {
         .then(response => {
             document.body.scrollTop = document.documentElement.scrollTop = 0;
             window.alert(`Candidate ${LName}, ${FName} rejected.`);
+            this.getCandidates();
         })
     }
 
@@ -110,11 +112,11 @@ class Candidatestatus extends Component {
                 <table className="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col" className='nosort'>ID</th>
-                            <th scope="col" className='nosort'>Name</th>
-                            <th scope="col" className='nosort'>Position</th>
-                            <th scope="col" className='nosort'>Status</th>
-                            <th scope="col" className='nosort'>Decision</th>
+                            <th scope="col" className=''>ID</th>
+                            <th scope="col" className=''>Name</th>
+                            <th scope="col" className=''>Position</th>
+                            <th scope="col" className=''>Status</th>
+                            <th scope="col" className=''>Decision</th>
                         </tr>
                     </thead>
                     <tbody>
