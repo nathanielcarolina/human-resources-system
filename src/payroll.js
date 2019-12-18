@@ -21,14 +21,24 @@ class Payroll extends Component {
         .catch(err => console.error(err));
     }
 
+    getPayroll = (EmployeeID) => {
+        fetch(`http://localhost:4000/payroll/${EmployeeID}`)
+        .then(response => response.json())
+        .then(response => { 
+            let employee = response.data[0];
+            document.getElementById(EmployeeID).textContent = `${employee.Compensation.toLocaleString("en", {style: "currency", currency: 'USD'})}`;
+        })
+        .catch(err => console.error(err));
+    }
+        
     render() {
-        let renderEmployee = this.state.employees.map(({EmployeeID, LastName, FirstName, Position, Compensation}) => 
-            <tr key={EmployeeID.toString()}>
+        let renderEmployee = this.state.employees.map(({EmployeeID, LastName, FirstName, Position}) => 
+            <tr key={EmployeeID}>
                 <td>{EmployeeID}</td>
                 <td>{LastName}, {FirstName}</td>
                 <td>{Position}</td>
-                <td>{Compensation ? Compensation.toLocaleString("en", {style: "currency", currency: 'USD'}) : ""}</td>
-                <td><a href="#" className="text-success">more info</a></td>
+                <td id={EmployeeID}>{this.getPayroll(EmployeeID)}</td>
+                <td><a href={"/employee/edit/" + EmployeeID} className="text-success">more info</a></td>
             </tr>
         );
         return (
