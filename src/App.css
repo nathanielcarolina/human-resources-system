@@ -44,7 +44,6 @@ th.nosort::after {
   font-family: "FontAwesome";
   font-weight: 900;
   color: lightgray;
-  margin-left: 20px;
 }
 
 th.up::after {
