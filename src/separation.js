@@ -47,13 +47,13 @@ class Separation extends Component {
                 <div className="row justify-content-md-center">
                 <form className="needs-validation form-group mb-5" noValidate>
                     <div className="col text-center">
-                        <div className="py-5 ">
+                        <div className="py-3 ">
                             <h2>Separation</h2>
-                            <p className="lead">Below you have to enter the details of the Employee to be seperated .</p>
+                            <p className="lead">Enter the details of the Employee to be separated.</p>
                         </div>  
                                 <div className="row">
                                     <div className="col-6 text-left">
-                                        <label htmlFor="emps">Emoloyee ID</label>
+                                        <label htmlFor="emps">Employee ID</label>
                                         <input type="text" className="form-control" id="emps" name="emps"  required="" onChange={this.handleChange} />
                                         <div className="invalid-feedback">
                             Valid first name is required.
@@ -96,7 +96,7 @@ class Separation extends Component {
                             <div className="col-md-6 text-left">
                                 <div className="py-3 ">
                                     <input type="checkbox" className="form-check-input" id="eqpreturn" value="0" name="eqpreturn"  onChange={this.handleChange} />
-                                    <label className="form-check-label" htmlFor="eqpreturn">Equipment Returned</label>
+                                    <label className="form-check-label" htmlFor="eqpreturn">Equipment Returned?</label>
                                     <div className="invalid-feedback">
                                         Equipment Return is required.
                                     </div>
@@ -108,7 +108,7 @@ class Separation extends Component {
                             <textarea className="form-control" id="rol " rows="3" onChange={this.handleChange} name="rol"  ></textarea>
                         </div>
                     </div>
-                    <input className="btn btn-primary btn-lg btn-block btn-danger" onClick={this.handleSubmitSeparation} type="button" value="SEPARATE" />
+                    <input className="btn btn-primary btn-lg btn-block btn-danger" onClick={this.handleSubmitSeparation} type="button" value="SEPARATE EMPLOYEE" />
                 </form>
                 </div>
            </> 
