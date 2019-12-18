@@ -37,6 +37,8 @@ class EmployeeEdit extends Component {
             BankName: null,
             IBAN: null,
             BIC: null,
+            //////Leaves
+            Leaves: null, 
             //////Performance
             RatingDate: null,
             RatedBy: null,
@@ -164,20 +166,23 @@ class EmployeeEdit extends Component {
                 this.getManagers();
                 this.getEmployeeStatuses();
                 this.getAddresses();
+                this.getContact();
+                this.getPayroll();
+                this.getLeaves();
                 this.getPerformances();
                 this.setState({ Department: this.state.currentEmployee.Dept_ID });
                 this.setState({ Position: this.state.currentEmployee.Position_ID });
                 this.setState({ Manager: this.state.currentEmployee.ReportingManager });
                 this.setState({ EmployeeStatus: this.state.currentEmployee.Emp_Status_ID });
-                this.setState({ WorkContact: this.state.currentEmployee.WorkContact }); 
+                // this.setState({ WorkContact: this.state.currentEmployee.WorkContact }); 
                 this.setState({ PersonalContact: this.state.currentEmployee.PersonalContact }); 
                 //////Payroll
-                this.setState({ Compensation: this.state.currentEmployee.Compensation });
-                this.setState({ Bonus: this.state.currentEmployee.Bonus });
-                this.setState({ Increment: this.state.currentEmployee.Increment });
-                this.setState({ BankName: this.state.currentEmployee.BankName });
-                this.setState({ IBAN: this.state.currentEmployee.IBAN });
-                this.setState({ BIC: this.state.currentEmployee.BIC });                
+                // this.setState({ Compensation: this.state.currentEmployee.Compensation });
+                // this.setState({ Bonus: this.state.currentEmployee.Bonus });
+                // this.setState({ Increment: this.state.currentEmployee.Increment });
+                // this.setState({ BankName: this.state.currentEmployee.BankName });
+                // this.setState({ IBAN: this.state.currentEmployee.IBAN });
+                // this.setState({ BIC: this.state.currentEmployee.BIC });                
                 }); 
             } else {
                 this.setState({ employeeNotFound: true });
@@ -225,6 +230,36 @@ class EmployeeEdit extends Component {
         fetch('http://localhost:4000/employee-statuses')
         .then(response => response.json())
         .then(response => this.setState({ employeeStatuses: response.data }))
+        .catch(err => console.error(err));
+    }
+
+    getContact = _ => {
+        fetch(`http://localhost:4000/contact/${this.state.currentEmployee.EmployeeID}`)
+        .then(response => response.json())
+        .then(response => this.setState({ WorkContact: response.data[0].contact_Number }))
+        .catch(err => console.error(err));
+    }
+
+    getPayroll = _ => {
+        fetch(`http://localhost:4000/payroll/${this.state.currentEmployee.EmployeeID}`)
+        .then(response => response.json())
+        .then(response => this.setState({ 
+            Compensation: response.data[0].Compensation, 
+            Bonus: response.data[0].Bonus, 
+            Increment: response.data[0].Increment, 
+            BankName: response.data[0].Bank_Name, 
+            IBAN: response.data[0].IBAN, 
+            BIC: response.data[0].BIC
+        }))
+        .catch(err => console.error(err));
+    }
+
+    getLeaves = _ => {
+        fetch(`http://localhost:4000/leaves/${this.state.currentEmployee.EmployeeID}`)
+        .then(response => response.json())
+        .then(response => this.setState({ 
+            Leaves: response.data 
+        }))
         .catch(err => console.error(err));
     }
 
@@ -388,7 +423,9 @@ class EmployeeEdit extends Component {
                         </div>
 
                         <div class="tab-pane fade" id="list-leave-management" role="tabpanel" aria-labelledby="list-leave-management-list">
-                            <EmployeeEditLeaveManagement currentEmployee={currentEmployee} />
+                            <EmployeeEditLeaveManagement 
+                                Leaves={this.state.Leaves} 
+                                currentEmployee={currentEmployee} />
                         </div>
 
                         <div class="tab-pane fade" id="list-performance" role="tabpanel" aria-labelledby="list-performance-list">
